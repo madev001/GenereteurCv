@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.cv.entities.Formation;
 import com.cv.entities.Utilisateur;
 import com.cv.repository.UtilisateurRepository;
 @Controller
@@ -28,6 +29,16 @@ public class UtilisateurController {
 		model.addAttribute("utilisateur",new Utilisateur());
 		return "DonneesPersonelles";
 	}*/
+	
+	@GetMapping("/Carriere")
+	public ModelAndView getCarriereForm()
+	{
+		ModelAndView mav = new ModelAndView("Carriere");
+        mav.addObject("utilisateur",new Utilisateur());
+        //initialisé l'objet formation pour l"ajouter
+        mav.addObject("formation",new Formation());
+        return mav;
+	}
 	
 	@GetMapping("/DonneesPersonelles")
 	public ModelAndView getProfileForm()
