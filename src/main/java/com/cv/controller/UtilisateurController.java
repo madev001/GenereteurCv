@@ -30,7 +30,7 @@ public class UtilisateurController {
 		return "DonneesPersonelles";
 	}*/
 	
-	@GetMapping("/Carriere")
+	/*@GetMapping("/Carriere")
 	public ModelAndView getCarriereForm()
 	{
 		ModelAndView mav = new ModelAndView("Carriere");
@@ -38,7 +38,7 @@ public class UtilisateurController {
         //initialisé l'objet formation pour l"ajouter
         mav.addObject("formation",new Formation());
         return mav;
-	}
+	}*/
 	
 	@GetMapping("/DonneesPersonelles")
 	public ModelAndView getProfileForm()
@@ -47,11 +47,22 @@ public class UtilisateurController {
         mav.addObject("utilisateur",new Utilisateur());
         return mav;
 	}
-	
 	@PostMapping("/save_profile")
-    public String addProfile(Utilisateur utilisateur, BindingResult bindingResult/**/) {
+    public ModelAndView addProfile(Utilisateur utilisateur, BindingResult bindingResult) {
+        if(bindingResult.hasErrors()){}
+        ModelAndView mav = new ModelAndView("Carriere");
+        ur.save(utilisateur);
+        //return "redirect:/Carriere";
+        mav.addObject("formation",new Formation());
+        mav.addObject("utilisateur",utilisateur);
+        return mav;
+    }
+	/*
+	@PostMapping("/save_profile")
+    public String addProfile(Utilisateur utilisateur, BindingResult bindingResult) {
         if(bindingResult.hasErrors()){return "DonneesPersonelles";}
         ur.save(utilisateur);
         return "redirect:/Carriere";
     }
+	*/
 }

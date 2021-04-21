@@ -11,14 +11,20 @@ crossorigin="anonymous">
 </head>
 <body>
     <div class="container">
+   								 
+								 <h3 th:text="${utilisateur.nom}"></h3>
+								 
+								
 		      <div class="panel panel-primary">
 				  <div class="panel-heading">
 				    <h3 class="panel-title">Mes Formation</h3>
 				  </div>
 				  <div class="panel-body" style="display:none;">
-				  <form th:action="@{/saveFormation}" method="post" th:object="${formation}">
+				
+				  <form th:action="@{/saveFormation?id=__${utilisateur.id}__}" method="post" th:object="${formation}">
+				    	
 				    	<div class="row " >
-				    	<!--  --><input type="hidden" th:value="${utilisateur.id}" th:field ="*{utilisateur.id}">
+				    	
 						    <div class="col-lg-6 col-md-6 col-sm-6">
 						    <input type="text" class="form-control" placeholder="Formation scolaire" th:field ="*{Intitule}">
 						    </div>
@@ -52,16 +58,19 @@ crossorigin="anonymous">
 				  		</form>
 				  </div>
 				  
-			</div></br> 		
+			</div></br> 	
+								
 			<div class="panel panel-primary">
 				  <div class="panel-heading">
 				    <h3 class="panel-title">Mes Competances</h3>
 				  </div>
 				  <div class="panel-body" style="display:none;">
 				  <form th:action="@{/saveFormation}" method="post" th:object="${formation}">
-				    	<div class="row " >
-				    	<!--  <input type="hidden" th:value="${utilisateur.id}" th:field ="*{utilisateur.id}">-->
-				    	<input type="hidden" id="id" name="id"  th:field ="*{id}">
+				   <div class="row">
+				    <!--	<div class="row" th:object="${utilisateur}">-->
+				    	
+				      <!--	  <input type="hidden" th:value="${utilisateur.id}" th:field ="*{utilisateur.id}">
+				    	<input type="hidden" id="id" name="id"  th:field ="*{id}">-->
 						    <div class="col-lg-6 col-md-6 col-sm-6">
 						    <input type="text" class="form-control" placeholder="Formation scolaire" th:field ="*{Intitule}">
 						    </div>
