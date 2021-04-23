@@ -1,5 +1,7 @@
 package com.cv.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +18,7 @@ import com.cv.entities.Formation;
 import com.cv.entities.Utilisateur;
 import com.cv.repository.FormationRepository;
 import com.cv.repository.UtilisateurRepository;
+import com.cv.service.FormationService;
 
 @Controller
 public class FormationController {
@@ -24,7 +27,8 @@ public class FormationController {
 	FormationRepository fr;
 	@Autowired
 	UtilisateurRepository ur;
-
+	@Autowired
+	FormationService fs;
 	/*
 	@RequestMapping(value = "/saveFormation", method = { RequestMethod.GET, RequestMethod.POST })
 	public void saveFormation(@ModelAttribute Formation formation,@RequestParam("id") Long id )
@@ -41,18 +45,10 @@ public class FormationController {
         
         ModelAndView mav = new ModelAndView("Carriere");
         Utilisateur u = ur.getUtilisateur(id);
-		Formation f = new Formation();
-		f.setEtablissement(formation.getEtablissement());
-		f.setDescription(formation.getDescription());
-		f.setFormation_debut_annee(formation.getFormation_debut_annee());
-		f.setFormation_debut_mois(formation.getFormation_debut_mois());
-		f.setFormation_fin_annee(formation.getFormation_fin_annee());
-		f.setFormation_fin_mois(formation.getFormation_fin_mois());
-		f.setIntitule(formation.getIntitule());
-		f.setLocalite(formation.getLocalite());
-		f.setUtilisateur(u);
-		fr.save(f);
-        
+        fs.ajouterFormation(formation,u);
+        //getFormations
+        List<Formation> l = fs.listeFormation(u);
+        mav.addObject("formations",l);
         mav.addObject("formation",new Formation());
         mav.addObject("utilisateur",utilisateur);
         return mav;
