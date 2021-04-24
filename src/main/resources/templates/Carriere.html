@@ -12,19 +12,39 @@ crossorigin="anonymous">
 <body>
     <div class="container">
    								 
-								 <h3 th:text="${utilisateur.nom}"></h3>
+				<h3 th:text="${utilisateur.nom}"></h3>
 								 
 								
 		      <div class="panel panel-primary">
 				  <div class="panel-heading">
 				    <h3 class="panel-title">Mes Formation</h3>
 				  </div>
-				  <div class="panel-body" style="display:none;">
+				  <div class="panel-body" >
 				
 				  <form th:action="@{/saveFormation?id=__${utilisateur.id}__}" method="post" th:object="${formation}">
 				    	
-				    	<div class="row " >
 				    	
+				    	<!-- Affichage des formations -->
+												    	<div class="card border border-success" style="margin:10px" th:if="${formations != null}" th:each="formation : ${formations}">  
+														        <div class="card-body" >
+														            
+														               <h5 class="card-title text-warning"> Formations</h5>
+														            
+														            <p class="card-text text-secondary" >
+														                <label th:text="${formation.Intitule}"></label></br>
+														                <label th:text="${formation.Formation_debut_mois}"></label> <label th:text="${formation.Formation_debut_annee}"></label>-
+														                <label th:text="${formation.Formation_fin_mois}"></label> <label th:text="${formation.Formation_fin_annee}"></label>
+														            </p>
+														        </div>
+														        <div class="card-footer text-center">
+														               <button class="btn btn-primary btn-sm float-left" id="left" style="color:white"> Modifier</button>
+														            
+														               <button class="btn btn-danger btn-sm float-right"  style="color:white"> Supprimer</button>
+														        </div>
+														    </div>
+				<div class="AddForm" style="display:none;">										    
+				    	<div class="row "  >
+				    	<!-- Ajouter des formations -->
 						    <div class="col-lg-6 col-md-6 col-sm-6">
 						    <input type="text" class="form-control" placeholder="Formation scolaire" th:field ="*{Intitule}">
 						    </div>
@@ -33,80 +53,40 @@ crossorigin="anonymous">
 						    </div>
 				    	</div></br>
 				    	<div class="row ">
-				    		<input type="text" class="form-control" placeholder="Etablissement" th:field ="*{Etablissement}">
+				    		<div class="col-lg-12 col-md-12 col-sm-12">
+				    			<input type="text" class="form-control" placeholder="Etablissement" th:field ="*{Etablissement}">
+				    		</div>
 				    	</div></br>
 				    	<div class="row ">
 				    		
-				    		<div class="col-lg-3 col-md-2 col-sm-2">
-						    <input type="text" class="form-control" placeholder="Depuis quel  mois" th:field ="*{Formation_debut_mois}">
+				    		<div class="col-lg-6 col-md-4 col-sm-4">
+						    <!-- <input type="text" class="form-control" placeholder="Depuis quel  mois" th:field ="*{Formation_debut_mois}"> -->
+						    <input class="form-control" type="month" placeholder="Jusqu'au quel  mois" name="depuis" th:field ="*{Formation_debut_mois}">
 						    </div>
-						    <div class="col-lg-3 col-md-2 col-sm-2 ">
-						    <input type="text" class="form-control" placeholder="Depuis quelle année" th:field ="*{Formation_debut_annee}">
+						    <div class="col-lg-6 col-md-4 col-sm-4">
+						    <!-- <input type="text" class="form-control" placeholder="Depuis quelle année" th:field ="*{Formation_debut_annee}"> -->
+						    <input class="form-control" type="month" name="jusqu" th:field ="*{Formation_fin_mois}">
 						    </div>
-						   
+						   <!-- 
 						    <div class="col-lg-3 col-md-2 col-sm-2">
 						    <input type="text" class="form-control" placeholder="Jusqu'au quel  mois" th:field ="*{Formation_fin_mois}">
 						    </div>
 						    <div class="col-lg-3 col-md-2 col-sm-2 ">
 						    <input type="text" class="form-control" placeholder="Jusqu'au quelle année" th:field ="*{Formation_fin_annee}">
 						    </div>
-				    	</div>
+						     -->
+				    	</div></br>
+				   </div>
 				    	<div class="row">
-				  			
-				  			<button type="submit" class="btn btn-success pull-right rounded-pill">Sauvegarder</button>
+				  			<a  class="a btn btn-warning col-lg-6 col-md-6 col-sm-6 offset-2" >Ajouter une Formation</a>
+				  			<button type="submit" class="btn btn-primary pull-right rounded-pill">Sauvegarder</button>
 				  		</div>
 				  		</form>
 				  </div>
 				  
 			</div></br> 	
 								
-			<div class="panel panel-primary">
-				  <div class="panel-heading">
-				    <h3 class="panel-title">Mes Competances</h3>
-				  </div>
-				  <div class="panel-body" style="display:none;">
-				  <form th:action="@{/saveFormation}" method="post" th:object="${formation}">
-				   <div class="row">
-				    <!--	<div class="row" th:object="${utilisateur}">-->
-				    	
-				      <!--	  <input type="hidden" th:value="${utilisateur.id}" th:field ="*{utilisateur.id}">
-				    	<input type="hidden" id="id" name="id"  th:field ="*{id}">-->
-						    <div class="col-lg-6 col-md-6 col-sm-6">
-						    <input type="text" class="form-control" placeholder="Formation scolaire" th:field ="*{Intitule}">
-						    </div>
-						    <div class="col-lg-6 col-md-6 col-sm-6">
-						    <input type="text" class="form-control" placeholder="Localité" th:field ="*{Localite}">
-						    </div>
-				    	</div></br>
-				    	<div class="row ">
-				    		<input type="text" class="form-control" placeholder="Etablissement" th:field ="*{Etablissement}">
-				    	</div></br>
-				    	<div class="row ">
-				    		
-				    		<div class="col-lg-3 col-md-2 col-sm-2">
-						    <input type="text" class="form-control" placeholder="Depuis quel  mois" th:field ="*{Formation_debut_mois}">
-						    </div>
-						    <div class="col-lg-3 col-md-2 col-sm-2 ">
-						    <input type="text" class="form-control" placeholder="Depuis quelle année" th:field ="*{Formation_debut_annee}">
-						    </div>
-						   
-						    <div class="col-lg-3 col-md-2 col-sm-2">
-						    <input type="text" class="form-control" placeholder="Jusqu'au quel  mois" th:field ="*{Formation_fin_mois}">
-						    </div>
-						    <div class="col-lg-3 col-md-2 col-sm-2 ">
-						    <input type="text" class="form-control" placeholder="Jusqu'au quelle année" th:field ="*{Formation_fin_annee}">
-						    </div>
-				    	</div></br>
-				    	<div class="row">
-				  			
-				  			<button type="submit" class="btn btn-success pull-right rounded-pill">Sauvegarder</button>
-				  		</div>
-				  		</form>
-				  </div>
-				  
-			</div> 		
-
-
+		
     </div>
 </body>
 <script>
@@ -114,6 +94,11 @@ $('.panel-heading').on('click', function() {
     $(this).next('.panel-body').slideToggle("slow");
     
 });
+
+
+$( ".a" ).click(function() {
+	  $( ".AddForm" ).show( "slow" );
+	});
 
 
 </script>
