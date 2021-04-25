@@ -29,6 +29,7 @@ public class Experience implements Serializable{
     
     private String Fonction;
     private String Localite;
+    private String Etablissement;
     private String Depuis;
     private String Jusqua;
     private String Description;

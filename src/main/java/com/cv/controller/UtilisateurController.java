@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.cv.entities.Experience;
 import com.cv.entities.Formation;
 import com.cv.entities.Utilisateur;
 import com.cv.repository.UtilisateurRepository;
@@ -52,7 +53,6 @@ public class UtilisateurController {
         if(bindingResult.hasErrors()){}
         ModelAndView mav = new ModelAndView("Carriere");
         ur.save(utilisateur);
-        //return "redirect:/Carriere";
         mav.addObject("formation",new Formation());
         mav.addObject("utilisateur",utilisateur);
         return mav;

@@ -35,4 +35,9 @@ public class FormationService {
 		List<Formation> l = fr.getAllFormation(u);
 		return l;
 	}
+	
+	public void supprimerFormation(Long id)
+	{
+		fr.deleteById(id);
+	}
 }
