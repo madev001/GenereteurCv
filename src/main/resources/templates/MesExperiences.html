@@ -12,8 +12,7 @@ crossorigin="anonymous">
 <body>
     <div class="container">
    								 
-				<img th:src="@{'/images/'+${utilisateur.Image}}"></img><h3 th:text="${utilisateur.nom}+${utilisateur.prenom}"></h3>
-								<img th:src="@{data:image/png;base64,${utilisateur.Image}}"> 
+				<h3 th:text="${utilisateur.nom}+' '+${utilisateur.prenom}"></h3>
 								
 
 <!-- Panel Experiences -->								
@@ -34,8 +33,8 @@ crossorigin="anonymous">
 														               <h5 class="card-title text-warning"> Formation</h5>
 														            
 														            <p class="card-text text-secondary" >
-														                <label th:text="${experience.Intitule}"></label></br>
-														                <label th:text="${experience.Depuis}"></label> <label th:text="${experience.Jusqua}"></label>-
+														                <label th:text="${experience.Fonction}"></label></br>
+														                <label th:text="${experience.Depuis}"></label> - <label th:text="${experience.Jusqua}"></label>
 														            </p>
 														        </div>
 														        <div class="card-footer text-center">
