@@ -26,7 +26,7 @@ public class ExperienceController {
 	ExperienceService es;
 	
 	
-	@GetMapping("/MesExperiences")
+	/*@GetMapping("/MesExperiences")
 	public ModelAndView getExperienceForm(@RequestParam("id") Long id)
 	{
         Utilisateur u = ur.getUtilisateur(id);
@@ -34,7 +34,7 @@ public class ExperienceController {
         mav.addObject("experience",new Experience());
         mav.addObject("utilisateur",u);
         return mav;
-	}
+	}*/
 	
 	@RequestMapping(value = "/saveExperience", method = { RequestMethod.GET, RequestMethod.POST })
     public ModelAndView addExperience(@ModelAttribute Experience experience,@RequestParam("id") Long id/*, BindingResult bindingResult*/) {
@@ -54,9 +54,20 @@ public class ExperienceController {
         mav.addObject("utilisateur",u);
         return mav;
     }
+	@RequestMapping(value = "/Experiences",method = RequestMethod.GET)
+	public ModelAndView loadExperience(@RequestParam("id") Long Utilisateur_id)
+	{
+        ModelAndView mav = new ModelAndView("MesExperiences");
+        Utilisateur u = ur.getUtilisateur(Utilisateur_id);
+        List<Experience> l = es.getAllExperience(u);
+        mav.addObject("experiences",l);
+        mav.addObject("experience",new Experience());
+        mav.addObject("utilisateur",u);
+        return mav;
+	}
 	
 	@RequestMapping(value = "/deleteExperience",method = RequestMethod.GET)
-	public ModelAndView suppFormation(@RequestParam("Experience_id") Long Experience_id,@RequestParam("Utilisateur_id") Long Utilisateur_id)
+	public ModelAndView suppExperience(@RequestParam("Experience_id") Long Experience_id,@RequestParam("Utilisateur_id") Long Utilisateur_id)
 	{
 		ModelAndView mav = new ModelAndView("MesExperiences");
 		es.deleteExperience(Experience_id);

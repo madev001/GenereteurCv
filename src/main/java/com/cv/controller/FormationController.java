@@ -58,13 +58,19 @@ public class FormationController {
 	@RequestMapping(value = "/deleteFormation",method = RequestMethod.GET)
 	public ModelAndView suppFormation(@RequestParam("Formation_id") Long Formation_id,@RequestParam("Utilisateur_id") Long Utilisateur_id)
 	{
-		ModelAndView mav = new ModelAndView("Carriere");
+		//ModelAndView mav = new ModelAndView("Carriere");
 		fs.supprimerFormation(Formation_id);
-		Utilisateur u = ur.getUtilisateur(Utilisateur_id);
+		/*Utilisateur u = ur.getUtilisateur(Utilisateur_id);
 		   List<Formation> l = fs.listeFormation(u);
 	        mav.addObject("formations",l);
 	        mav.addObject("formation",new Formation());
 	        mav.addObject("utilisateur",u);
-	        return mav;
+	        return mav;*/
+		return fs.loadFormation(Utilisateur_id);
+	}
+	@RequestMapping(value = "/Formations",method = RequestMethod.GET)
+	public ModelAndView revenir(@RequestParam("id") Long Utilisateur_id)
+	{
+		return fs.loadFormation(Utilisateur_id);
 	}
 }

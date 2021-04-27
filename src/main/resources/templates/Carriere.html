@@ -12,8 +12,8 @@ crossorigin="anonymous">
 <body>
     <div class="container">
    								 
-				<img th:src="@{'/images/'+${utilisateur.Image}}"></img><h3 th:text="${utilisateur.nom}+${utilisateur.prenom}"></h3>
-								<img th:src="@{data:image/png;base64,${utilisateur.Image}}"> 
+				<h3 th:text="${utilisateur.nom}+' '+${utilisateur.prenom}"></h3>
+								 
 								
 		      <div class="panel panel-primary">
 				  <div class="panel-heading">
@@ -59,11 +59,23 @@ crossorigin="anonymous">
 				    		
 				    		<div class="col-lg-6 col-md-4 col-sm-4">
 						    <!-- <input type="text" class="form-control" placeholder="Depuis quel  mois" th:field ="*{Formation_debut_mois}"> -->
-						    <input class="form-control" type="month" placeholder="Jusqu'au quel  mois" name="depuis" th:field ="*{Formation_debut_mois}">
+						    			  <label class="form-check-label" for="depuis">
+									    	Depuis :
+									  	  </label>
+						    <input class="form-control" type="month" name="depuis" th:field ="*{Formation_debut_mois}">
 						    </div>
 						    <div class="col-lg-6 col-md-4 col-sm-4">
 						    <!-- <input type="text" class="form-control" placeholder="Depuis quelle année" th:field ="*{Formation_debut_annee}"> -->
+						    			<label class="form-check-label" for="jusqu">
+									    	Jusqu'a :
+									  	  </label>
 						    <input class="form-control" type="month" name="jusqu" th:field ="*{Formation_fin_mois}">
+						    		<div class="form-check">
+										  <input class="form-check-input" type="checkbox" value="Present" th:field ="*{Formation_fin_mois}" id="checkJusqua">
+										  <label class="form-check-label" for="checkJusqua">
+									    	Jusqu'a present
+									  	  </label>
+									</div>
 						    </div>
 						   <!-- 
 						    <div class="col-lg-3 col-md-2 col-sm-2">
@@ -76,9 +88,9 @@ crossorigin="anonymous">
 				    	</div></br>
 				   </div>
 				    	<div class="row">
-				  			<a  class="add btn btn-warning col-lg-6 col-md-6 col-sm-6 offset-lg-2" >Ajouter une Formation</a>
+				  			<a  class="add btn btn-warning col-lg-6 col-md-6 col-sm-4 offset-lg-2" style="margin:10px;">Ajouter une Formation</a>
 				  			<a class="cancel btn btn-danger" style="display:none;">Annuler</a>
-				  			<button type="submit" class="btn btn-primary pull-right rounded-pill">Sauvegarder</button>
+				  			<button type="submit" class="btn btn-primary pull-right rounded-pill" style="margin:10px;">Sauvegarder</button>
 				  		</div>
 				  		</form>
 				  </div>
@@ -86,70 +98,10 @@ crossorigin="anonymous">
 			</div></br> 	
 
 			<div class="row">
-					<a th:href="@{/MesExperiences?id=__${utilisateur.id}__}" class="btn btn-inverse pull-right rounded-pill"> Mes Experiences</a>
-					
+					<a class=" btn btn-info pull-left" >Mes Données personelles</a>
+					<a class=" btn btn-info pull-right" th:href="@{/Experiences?id=__${utilisateur.id}__}">Mes Experiences</a>
 			</div>
-<!-- Panel Experiences -->								
-		<!--
-				      <div class="panel panel-primary">
-				  <div class="panel-heading">
-				    <h3 class="panel-title">Mes Experiences professionelles</h3>
-				  </div>
-				  <div class="panel-body" >
-				
-				  <form th:action="@{/saveExperience?id=__${utilisateur.id}__}" method="post" th:object="${experience}">
-				    	
-				    	
-												    	<div class="card border border-success" style="margin:10px" th:if="${experiences != null}" th:each="experience : ${experiences}">  
-														        <div class="card-body" >
-														            
-														               <h5 class="card-title text-warning"> Formation</h5>
-														            
-														            <p class="card-text text-secondary" >
-														                <label th:text="${experience.Intitule}"></label></br>
-														                <label th:text="${experience.Depuis}"></label> <label th:text="${experience.Jusqua}"></label>-
-														            </p>
-														        </div>
-														        <div class="card-footer text-center">
-														        <a class="btn btn-danger btn-sm float-right" th:href="@{/deleteExperience(Experience_id =__${experience.id}__, Utilisateur_id =__${utilisateur.id}__)}" style="color:white"> Supprimer</a>
-														        </div>
-														    </div>
-				<div class="AddForm" style="display:none;">										    
-				    	<div class="row "  >
-						    <div class="col-lg-6 col-md-6 col-sm-6">
-						    <input type="text" class="form-control" placeholder="Fonction intitulé" th:field ="*{Fonction}">
-						    </div>
-						    <div class="col-lg-6 col-md-6 col-sm-6">
-						    <input type="text" class="form-control" placeholder="Localité" th:field ="*{Localite}">
-						    </div>
-				    	</div></br>
-				    	<div class="row ">
-				    		<div class="col-lg-12 col-md-12 col-sm-12">
-				    			<input type="text" class="form-control" placeholder="Etablissement" th:field ="*{Etablissement}">
-				    		</div>
-				    	</div></br>
-				    	<div class="row ">
-				    		
-				    		<div class="col-lg-6 col-md-4 col-sm-4">
-						    <input class="form-control" type="month" placeholder="Jusqu'au quel  mois" name="depuis" th:field ="*{Depuis}">
-						    </div>
-						    <div class="col-lg-6 col-md-4 col-sm-4">
-						    <input class="form-control" type="month" name="jusqu" th:field ="*{Jusqua}">
-						    </div>
-						   
-				    	</div></br>
-				   </div>
-				    	<div class="row">
-				  			<a  class="add btn btn-warning col-lg-6 col-md-6 col-sm-6 offset-lg-2" >Ajouter une Experience professionelle</a>
-				  			<a class="cancel btn btn-danger" style="display:none;">Annuler</a>
-				  			<button type="submit" class="btn btn-primary pull-right rounded-pill">Sauvegarder</button>
-				  		</div>
-				  		</form>
-				  </div>
-				  
-			</div></br> 	-->
-		
-		<!-- Competances -->
+
     </div>
 </body>
 <script>

@@ -5,16 +5,20 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.cv.entities.Formation;
 import com.cv.entities.Utilisateur;
 import com.cv.repository.FormationRepository;
+import com.cv.repository.UtilisateurRepository;
 
 @Service
 public class FormationService {
 
 	@Autowired
 	FormationRepository fr;
+	@Autowired
+	UtilisateurRepository ur;
 	
 	public void ajouterFormation(Formation formation,Utilisateur u)
 	{
@@ -40,4 +44,13 @@ public class FormationService {
 	{
 		fr.deleteById(id);
 	}
+	public ModelAndView loadFormation(Long Utilisateur_id) {		
+			ModelAndView mav = new ModelAndView("Carriere");
+			Utilisateur u = ur.getUtilisateur(Utilisateur_id);
+			List<Formation> l = listeFormation(u);
+	        mav.addObject("formations",l);
+	        mav.addObject("formation",new Formation());
+	        mav.addObject("utilisateur",u);
+	        return mav;
+}
 }
