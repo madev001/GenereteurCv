@@ -16,7 +16,7 @@ crossorigin="anonymous">
         <div class="row">
             <div class="col-12 col-lg-8 m-auto">
                 <form class="multisteps-form__form" th:action="@{/save_profile}" method="post"
-                      th:object="${utilisateur}">
+                      th:object="${utilisateur}" enctype="multipart/form-data">
                     <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" data-animation="scaleIn">
                         <h3 class="multisteps-form__title">Informations personnelles</h3>
                         <div class="multisteps-form__content">
@@ -57,7 +57,7 @@ crossorigin="anonymous">
                                 </div>
                                 <div class="col-12 col-sm-6 mt-4 mt-sm-0">
                                     <label for="formFile" class="form-label">image</label>
-                                    <input class="form-control" type="file" id="formFile" th:field="*{image}">
+                                    <input class="form-control" type="file" name="image" th:field="*{image}">
                                 </div>
                             </div>
                             

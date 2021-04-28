@@ -1,5 +1,8 @@
 package com.cv.controller;
 
+import java.io.IOException;
+import java.util.Base64;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cv.entities.Experience;
@@ -49,9 +53,21 @@ public class UtilisateurController {
         return mav;
 	}
 	@PostMapping("/save_profile")
-    public ModelAndView addProfile(Utilisateur utilisateur, BindingResult bindingResult) {
+    public ModelAndView addProfile(@ModelAttribute MultipartFile image, Utilisateur utilisateur, BindingResult bindingResult) {
         if(bindingResult.hasErrors()){}
         ModelAndView mav = new ModelAndView("Carriere");
+        
+        String fileName= org.springframework.util.StringUtils.cleanPath(image.getOriginalFilename());
+		if(fileName.contains(".."))
+		{
+			System.out.println("File not valide");
+		}
+		try {
+			
+			utilisateur.setImage(Base64.getEncoder().encodeToString(image.getBytes()));
+		}
+		catch(IOException e){ e.printStackTrace();}
+		
         ur.save(utilisateur);
         mav.addObject("formation",new Formation());
         mav.addObject("utilisateur",utilisateur);

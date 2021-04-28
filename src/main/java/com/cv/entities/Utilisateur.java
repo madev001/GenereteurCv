@@ -6,11 +6,13 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -40,7 +42,10 @@ public class Utilisateur implements Serializable{
     private String Tel;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date DateNaissance;
-    private byte[] Image;
+    @Lob
+	@Column(columnDefinition = "LONGBLOB")
+	private String Image;
+    //private byte[] Image;
     
     public Long getId() {
 		return id;
@@ -96,10 +101,11 @@ public class Utilisateur implements Serializable{
 	public void setDateNaissance(Date dateNaissance) {
 		DateNaissance = dateNaissance;
 	}
-	public byte[] getImage() {
+	
+	public String getImage() {
 		return Image;
 	}
-	public void setImage(byte[] image) {
+	public void setImage(String image) {
 		Image = image;
 	}
 	public List<Formation> getListFormations() {
