@@ -19,26 +19,26 @@ crossorigin="anonymous">
 		
 				      <div class="panel panel-primary">
 				  <div class="panel-heading">
-				    <h3 class="panel-title">Mes Experiences professionelles</h3>
+				    <h3 class="panel-title">Mes Langues</h3>
 				  </div>
 				  <div class="panel-body" >
 				
-				  <form th:action="@{/saveExperience?id=__${utilisateur.id}__}" method="post" th:object="${experience}">
+				  <form th:action="@{/saveLangue?id=__${utilisateur.id}__}" method="post" th:object="${langue}">
 				    	
 				    	
 				    	<!-- Affichage des formations -->
-												    	<div class="card border border-success" style="margin:10px" th:if="${experiences != null}" th:each="experience : ${experiences}">  
+												    	<div class="card border border-success" style="margin:10px" th:if="${langues != null}" th:each="langue : ${langues}">  
 														        <div class="card-body" >
 														            
 														               <h5 class="card-title text-warning"> Experience</h5>
 														            
 														            <p class="card-text text-secondary" >
-														                <label th:text="${experience.Fonction}"></label></br>
-														                <label th:text="${experience.Depuis}"></label> - <label th:text="${experience.Jusqua}"></label>
+														                <label th:text="${langue.langue}"></label></br>
+														                <label th:text="${langue.niveau}"></label> 
 														            </p>
 														        </div>
 														        <div class="card-footer text-center">
-														        <a class="btn btn-danger btn-sm float-right" th:href="@{/deleteExperience(Experience_id =__${experience.id}__, Utilisateur_id =__${utilisateur.id}__)}" > 
+														        <a class="btn btn-danger btn-sm float-right" th:href="@{/deleteLangue(Langue_id =__${langue.id}__, Utilisateur_id =__${utilisateur.id}__)}" > 
 														        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
  																 <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
 																</svg>
@@ -50,42 +50,14 @@ crossorigin="anonymous">
 				    	<div class="row "  >
 				    	<!-- Ajouter des formations -->
 						    <div class="col-lg-6 col-md-6 col-sm-6">
-						    <input type="text" class="form-control" placeholder="Fonction intitulé" th:field ="*{Fonction}">
+						    <input type="text" class="form-control" placeholder="Langue" th:field ="*{Langue}">
 						    </div>
 						    <div class="col-lg-6 col-md-6 col-sm-6">
-						    <input type="text" class="form-control" placeholder="Localité" th:field ="*{Localite}">
+						    <input type="text" class="form-control" placeholder="Niveau" th:field ="*{Niveau}">
 						    </div>
 				    	</div></br>
-				    	<div class="row ">
-				    		<div class="col-lg-12 col-md-12 col-sm-12">
-				    			<input type="text" class="form-control" placeholder="Etablissement" th:field ="*{Etablissement}">
-				    		</div>
-				    	</div></br>
-				    	<div class="row ">
-				    		
-				    		<div class="col-lg-6 col-md-4 col-sm-4">
-				    		 			  <label class="form-check-label" for="depuis">
-									    	Depuis :
-									  	  </label>
-						    <input class="form-control" type="month" name="depuis" th:field ="*{Depuis}">
-						    </div>
-						    <div class="col-lg-6 col-md-4 col-sm-4">
-						   				  <label class="form-check-label" for="jusqu">
-									    	Jusqu'a :
-									  	  </label>
-						    <input class="form-control" type="month" name="jusqu" id="jusqu" th:field ="*{Jusqua}">
-								    <div class="form-check">
-										  <input class="form-check-input" type="checkbox" value="Present" th:field ="*{Jusqua}" id="checkJusqua">
-										  <label class="form-check-label" for="checkJusqua">
-									    	Jusqu'a present
-									  	  </label>
-									</div>
-						    </div>
-						   <div class="col-lg-12 col-md-12 col-sm-12">
-							    <label for="FormControlTextarea">Description</label>
-							    <textarea class="form-control" id="FormControlTextarea" rows="4" th:field="*{Description}"></textarea>
-							 </div>
-				    	</div></br>
+				    	
+				    	
 				   </div>
 				    	<div class="row">
 				  			<a  class="add btn btn-warning col-lg-6 col-md-6 col-sm-4 offset-lg-2" style="margin:10px;">Ajouter une Experience professionelle</a>
@@ -102,7 +74,7 @@ crossorigin="anonymous">
 			</div></br> 	
 					<div class="row">
 					  	<a class=" btn btn-info pull-left" th:href="@{/Formations?id=__${utilisateur.id}__}">Mes Formations</a>
-					  	<a class=" btn btn-info pull-right" th:href="@{/Langues?id=__${utilisateur.id}__}">Mes competances</a>
+					  	<a class=" btn btn-info pull-right" >Mes competances</a>
 				    </div></br>
 				    <div class="row text-center">
 				    	<a class=" btn btn-dark " th:href="@{/Model1?id=__${utilisateur.id}__}">Générer mon Cv !</a>
