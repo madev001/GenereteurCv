@@ -12,6 +12,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface FormationRepository extends JpaRepository <Formation , Long>{
 
-	@Query("select f from Formation f where f.utilisateur=:x ")
+	@Query("select f from Formation f where f.utilisateur=:x order by f.Formation_debut_mois DESC")
 	List<Formation> getAllFormation(@Param("x") Utilisateur u);
 }

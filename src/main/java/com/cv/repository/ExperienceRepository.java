@@ -12,6 +12,6 @@ import com.cv.entities.Utilisateur;
 @Repository
 public interface ExperienceRepository extends JpaRepository <Experience,Long>{
 
-	@Query("select e from Experience e where e.utilisateur=:x ")
+	@Query("select e from Experience e where e.utilisateur=:x  order by e.Depuis DESC")
 	List<Experience> getAllExperience(@Param("x") Utilisateur u);
 }

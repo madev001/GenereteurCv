@@ -53,8 +53,16 @@ crossorigin="anonymous">
 						    <input type="text" class="form-control" placeholder="Langue" th:field ="*{Langue}">
 						    </div>
 						    <div class="col-lg-6 col-md-6 col-sm-6">
-						    <input type="text" class="form-control" placeholder="Niveau" th:field ="*{Niveau}">
+							    <select class="form-select" aria-label="Default select example" th:field ="*{Niveau}">
+								  <option  value=""  hidden >Niveau</option>
+								  <option value="1">langue maternelle</option>
+								  <option value="2">bilingue</option>
+								  <option value="3">courant</option>
+								  <option value="4">intermédiaire</option>
+								  <option value="5">débutant</option>
+								</select>
 						    </div>
+						    
 				    	</div></br>
 				    	
 				    	

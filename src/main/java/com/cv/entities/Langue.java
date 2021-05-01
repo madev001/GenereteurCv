@@ -29,7 +29,7 @@ public class Langue implements Serializable{
     private Long id;
     
     private String Langue;
-    private int Niveau;
+    private Integer Niveau;
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_utilisateur",referencedColumnName ="id", updatable = false)

@@ -13,6 +13,6 @@ import com.cv.entities.Utilisateur;
 @Repository
 public interface LangueRepository extends JpaRepository <Langue,Long>{
 
-	@Query("select l from Langue l where l.utilisateur=:x")
+	@Query("select l from Langue l where l.utilisateur=:x and l.Niveau IS NOT NULL order by l.Niveau ")
 	List<Langue> getAllLangue(@Param("x") Utilisateur u);
 }
