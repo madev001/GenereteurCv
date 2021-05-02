@@ -28,6 +28,11 @@ public class UtilisateurController {
 	public String home() {
 		return "home";
 	}
+	@GetMapping("/test")
+	public String test() {
+		return "model2";
+	}
+	
 	
 	/*@GetMapping("/DonneesPersonelles")
 	public String GetDonneesPersonelles(@ModelAttribute Model model) {
