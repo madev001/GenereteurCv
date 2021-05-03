@@ -29,9 +29,10 @@ public class Competance implements Serializable{
     private Long id;
     
     private String Competance;
-    private int Niveau;
+    private Integer Niveau;
+    private String Ctype;
     
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_utilisateur",referencedColumnName ="id", insertable = false, updatable = false)
+    @JoinColumn(name = "id_utilisateur",referencedColumnName ="id", updatable = false)
     private Utilisateur utilisateur;
 }

@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cv.entities.Experience;
 import com.cv.entities.Langue;
 import com.cv.entities.Utilisateur;
 import com.cv.repository.LangueRepository;

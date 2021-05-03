@@ -19,50 +19,48 @@ crossorigin="anonymous">
 		
 				      <div class="panel panel-primary">
 				  <div class="panel-heading">
-				    <h3 class="panel-title">Mes Langues</h3>
+				    <h3 class="panel-title">Mes Compétances</h3>
 				  </div>
 				  <div class="panel-body" >
 				
-				  <form th:action="@{/saveLangue?id=__${utilisateur.id}__}" method="post" th:object="${langue}">
+				  <form th:action="@{/saveCompetance?id=__${utilisateur.id}__}" method="post" th:object="${competance}">
 				    	
 				    	
 				    	<!-- Affichage des formations -->
-												    	<div class="card border border-success" style="margin:10px" th:if="${langues != null}" th:each="langue : ${langues}">  
+												    	<div class="card border border-success" style="margin:10px" th:if="${competances != null}" th:each="competance : ${competances}">  
 														        <div class="card-body" >
-														            
-														               <h5 class="card-title text-warning"> Langue</h5>
-														       	 	<label th:text="${langue.Langue}" style="margin:5px; display: inline-block" > </label>
-																					<!-- 1 star -->
-																					<p th:if="${langue.Niveau ==5}" style="display: inline-block">
-																					    <span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
-																						<span class="fa fa-star"></span><span class="fa fa-star"></span>
+														           <div class="col-lg-3 col-md-3 col-sm-3">
+														       	 	<label th:text="${competance.competance}" style="margin:5px; display: inline-block" > </label>
+																	</div>	
+																	<div class="col-lg-3 col-md-3 col-sm-3">			
+																	<!-- 1 star -->
+																					<p th:if="${competance.niveau ==3}" style="display: inline-block">
+																					    <span class="fa fa-star checked"></span><span class="fa fa-star "></span><span class="fa fa-star "></span>
+																						
 																				     </p>
 																				     <!-- 2 stars -->
-																					<p th:if="${langue.Niveau ==4}" style="display: inline-block">
-																					    <span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span>
-																						<span class="fa fa-star"></span><span class="fa fa-star"></span>
+																					<p th:if="${competance.niveau ==2}" style="display: inline-block">
+																					    <span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star "></span>
+																						
 																				     </p>
 																				     <!-- 3 stars -->
-																					<p th:if="${langue.Niveau ==3}" style="display: inline-block">
+																					<p th:if="${competance.niveau ==1}" style="display: inline-block">
 																					    <span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
-																						<span class="fa fa-star"></span><span class="fa fa-star"></span>
+																						
 																				     </p>
-																				     <!-- 4 stars -->
-																					<p th:if="${langue.Niveau ==2}" style="display: inline-block">
-																					    <span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
-																						<span class="fa fa-star checked"></span><span class="fa fa-star"></span>
-																				     </p>
-																				     <!-- 5 stars -->
-																					<p th:if="${langue.Niveau ==1}" style="display: inline-block">
-																					    <span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
-																						<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
-																				     </p>
-																		
+																</div>
+																<div class="col-lg-3 col-md-3 col-sm-3">
+																<p th:if="${competance.Ctype =='théorique'}">	<span class="badge badge-dark">Théorique</span> </p>
+																<p th:if="${competance.Ctype =='téchnique'}">	<span class="badge badge-dark">Téchnique</span> </p>
+
+																</div>
+																<div class="col-lg-3 col-md-3 col-sm-3">
+																</div>
 																		  		</br>
 
 														        </div>
 														        <div class="card-footer text-center">
-														        <a class="btn btn-danger btn-sm float-right" th:href="@{/deleteLangue(Langue_id =__${langue.id}__, Utilisateur_id =__${utilisateur.id}__)}" > 
+														        <a class="btn btn-danger btn-sm float-right" th:href="@{/deleteCompetance(Competance_id =__${competance.id}__, Utilisateur_id =__${utilisateur.id}__)}" > 
 														        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
  																 <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
 																</svg>
@@ -73,18 +71,31 @@ crossorigin="anonymous">
 				<div class="AddForm" style="display:none;">										    
 				    	<div class="row "  >
 				    	<!-- Ajouter des formations -->
-						    <div class="col-lg-6 col-md-6 col-sm-6">
-						    <input type="text" class="form-control" placeholder="Langue" th:field ="*{Langue}">
+						    <div class="col-lg-4 col-md-4 col-sm-4">
+						    <input type="text" class="form-control" placeholder="Compétance" th:field ="*{Competance}">
 						    </div>
-						    <div class="col-lg-6 col-md-6 col-sm-6">
+						    <div class="col-lg-4 col-md-4 col-sm-4">
 							    <select class="form-control" aria-label="Default select example" th:field ="*{Niveau}">
 								  <option  value=""  hidden >Niveau</option>
-								  <option value="1">langue maternelle</option>
-								  <option value="2">bilingue</option>
-								  <option value="3">courant</option>
-								  <option value="4">intermédiaire</option>
-								  <option value="5">débutant</option>
+								  <option value="1">Senior</option>
+								  <option value="2">Medior</option>
+								  <option value="3">Junior</option>
+								  
 								</select>
+						    </div>
+						    <div class="col-lg-4 col-md-4 col-sm-4">
+								    <div class="form-check" style="display: inline-block">
+									  <input class="form-check-input" type="radio" name="theorique" th:value="théorique" th:field ="*{Ctype}" checked>
+									  <label class="form-check-label" for="theorique">
+									    Compétance théorique
+									  </label>
+									</div>
+									<div class="form-check" style="display: inline-block">
+									  <input class="form-check-input" type="radio" name="technique" th:value="téchnique" th:field ="*{Ctype}">
+									  <label class="form-check-label" for="technique">
+									    Compétance téchnique
+									  </label>
+									</div>
 						    </div>
 						    
 				    	</div></br>
@@ -92,7 +103,7 @@ crossorigin="anonymous">
 				    	
 				   </div>
 				    	<div class="row">
-				  			<a  class="add btn btn-warning col-lg-6 col-md-6 col-sm-4 offset-lg-2" style="margin:10px;">Ajouter une Experience professionelle</a>
+				  			<a  class="add btn btn-warning col-lg-6 col-md-6 col-sm-4 offset-lg-2" style="margin:10px;">Ajouter une Comptétance</a>
 				  			<a class="cancel btn btn-danger col-lg-2 col-md-2 col-sm-2" style="display:none;">Annuler</a>
 				  			<button type="submit" class="btn btn-success pull-right " style="margin:10px;">
 				  			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-save-fill" viewBox="0 0 16 16">
@@ -105,8 +116,8 @@ crossorigin="anonymous">
 				  
 			</div></br> 	
 					<div class="row">
-					  	<a class=" btn btn-info pull-left" th:href="@{/Formations?id=__${utilisateur.id}__}">Mes Formations</a>
-					  	<a class=" btn btn-info pull-right" >Mes competances</a>
+					  	<a class=" btn btn-info pull-left" th:href="@{/Experiences?id=__${utilisateur.id}__}">Mes experiences</a>
+					  	<a class=" btn btn-info pull-right" th:href="@{/Langues?id=__${utilisateur.id}__}">Mes Langues</a>
 				    </div></br>
 				    <div class="row text-center">
 				    	<a class=" btn btn-dark " th:href="@{/Model1?id=__${utilisateur.id}__}">Générer mon Cv !</a>

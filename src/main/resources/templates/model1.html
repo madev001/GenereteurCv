@@ -37,17 +37,63 @@ crossorigin="anonymous">
   <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/>
   </svg>
   <label class="dp" th:text="${utilisateur.Email}"></label></br> 
-
-
+ <!-- Date naissance -->
+	<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-date" viewBox="0 0 16 16">
+  <path d="M6.445 11.688V6.354h-.633A12.6 12.6 0 0 0 4.5 7.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z"/>
+  <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+</svg>
+ <label class="dp" th:text="${utilisateur.DateNaissance}"></label></br>
+ 
+ <!-- panel langue -->
+ <div class="langue" th:if="${langues != null}" >
+   <p class="text-center" style="font-size: 25px;font-weight: bold;" >Langues </p>
+   <div th:each="langue : ${langues}" >
+    	<div class="col-lg-6">
+	 	<label th:text="${langue.Langue}" style=" padding-right:15px; display: inline-block" > </label>
+		</div>
+		<div class="col-lg-6">
+			<!-- 1 star -->
+			<p th:if="${langue.Niveau ==5}" style="display: inline-block">
+			    <span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+				<span class="fa fa-star"></span><span class="fa fa-star"></span>
+		     </p>
+		     <!-- 2 stars -->
+			<p th:if="${langue.Niveau ==4}" style="display: inline-block">
+			    <span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span>
+				<span class="fa fa-star"></span><span class="fa fa-star"></span>
+		     </p>
+		     <!-- 3 stars -->
+			<p th:if="${langue.Niveau ==3}" style="display: inline-block">
+			    <span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+				<span class="fa fa-star"></span><span class="fa fa-star"></span>
+		     </p>
+		     <!-- 4 stars -->
+			<p th:if="${langue.Niveau ==2}" style="display: inline-block">
+			    <span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+				<span class="fa fa-star checked"></span><span class="fa fa-star"></span>
+		     </p>
+		     <!-- 5 stars -->
+			<p th:if="${langue.Niveau ==1}" style="display: inline-block">
+			    <span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+				<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+		     </p>
+		</div>
+  		</br>
+   </div>
+ 
+ </div>
+ 
+ 
  </div>
   </aside>
   <section>
-			  <h1 th:text="${utilisateur.prenom}+' '+${utilisateur.nom}" style="padding-bottom: 25px;"></h1>
+  <!-- Les experiences -->
+			  <h1 class="change_color" th:text="${utilisateur.prenom}+' '+${utilisateur.nom}" style="padding-bottom: 25px;"></h1>
 			  
 			 				 <div class="card border" style="margin:10px" th:if="${experiences != null}" th:each="experience : ${experiences}">  
 									    <div class="card-body" >
 														            
-									       <h5 class="card-title"> Experience</h5>
+									       <h5 class="card-title change_color"> Experience</h5>
 														            
 										    <p class="card-text " >
 											  <label th:text="${experience.Fonction}"></label></br>
@@ -56,13 +102,13 @@ crossorigin="anonymous">
 										 </div>
 														        
 							 </div>
-														    
+	<!-- les Formations -->													    
 						  <div class="card border" style="margin:10px" th:if="${formations != null}" >  
-								<div class="card-body" >
+								<div class="card-body" th:each="formation : ${formations}">
 														            
-									<h5 class="card-title" > Formation</h5>
+									<h5 class="card-title change_color" > Formation</h5>
 														            
-								 <p class="card-text" th:each="formation : ${formations}">
+								 <p class="card-text" >
 									 <label  th:text="${formation.Intitule}"></label> | <label th:text="${formation.Etablissement}"></label>
 									 </br>
 									 <label th:text="${formation.Formation_debut_mois} " style="font-size: 12px;"></label>-
@@ -72,6 +118,7 @@ crossorigin="anonymous">
 								 </p>
 							 </div>
 						  </div>
+	<!-- Les competances -->
   </section>
  
 </div>
@@ -82,6 +129,9 @@ crossorigin="anonymous">
 														     
 </body>
 <style>
+.checked {
+  color: orange;
+}
 img {
   border-radius: 50%;
   margin:5px;
@@ -96,6 +146,9 @@ body, html {
 
 #center-page {
   display: flex;
+}
+.change_color{
+  color:#C70039;
 }
 aside {
   flex: 1.5;

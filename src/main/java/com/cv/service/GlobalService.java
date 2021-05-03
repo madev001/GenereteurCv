@@ -8,6 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.cv.entities.Experience;
 import com.cv.entities.Formation;
+import com.cv.entities.Langue;
 import com.cv.entities.Utilisateur;
 import com.cv.repository.UtilisateurRepository;
 
@@ -19,6 +20,8 @@ public class GlobalService {
 	@Autowired
 	ExperienceService es;
 	@Autowired
+	LangueService ls;
+	@Autowired
 	UtilisateurRepository ur;
 	
 	public  ModelAndView getAllinfo(Long id)
@@ -27,8 +30,10 @@ public class GlobalService {
 		Utilisateur u = ur.getOne(id);
 		List<Formation> formations = fs.listeFormation(u);
 		List<Experience> experiences = es.getAllExperience(u);
+		List<Langue> langues = ls.getAllLangue(u);
 		mav.addObject("utilisateur",u);
 		mav.addObject("formations",formations);
+		mav.addObject("langues",langues);
 		mav.addObject("experiences",experiences);
         return mav;
 		
