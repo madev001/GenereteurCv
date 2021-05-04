@@ -87,15 +87,15 @@ crossorigin="anonymous">
  </div>
   </aside>
   <section>
-  <!-- Les experiences -->
+
 			  <h1 class="change_color" th:text="${utilisateur.prenom}+' '+${utilisateur.nom}" style="padding-bottom: 25px;"></h1>
-			  
-			 				 <div class="card border" style="margin:10px" th:if="${experiences != null}" th:each="experience : ${experiences}">  
+  <!-- Les experiences -->			  
+			 				 <div class="card border" style="margin:10px" th:if="${experiences != null}" >  
 									    <div class="card-body" >
 														            
 									       <h5 class="card-title change_color"> Experience</h5>
 														            
-										    <p class="card-text " >
+										    <p class="card-text " th:each="experience : ${experiences}">
 											  <label th:text="${experience.Fonction}"></label></br>
 											  <label th:text="${experience.Depuis}"></label> - <label th:text="${experience.Jusqua}"></label>
 											 </p>
@@ -104,11 +104,11 @@ crossorigin="anonymous">
 							 </div>
 	<!-- les Formations -->													    
 						  <div class="card border" style="margin:10px" th:if="${formations != null}" >  
-								<div class="card-body" th:each="formation : ${formations}">
+								<div class="card-body" >
 														            
 									<h5 class="card-title change_color" > Formation</h5>
 														            
-								 <p class="card-text" >
+								 <p class="card-text" th:each="formation : ${formations}"  >
 									 <label  th:text="${formation.Intitule}"></label> | <label th:text="${formation.Etablissement}"></label>
 									 </br>
 									 <label th:text="${formation.Formation_debut_mois} " style="font-size: 12px;"></label>-
@@ -119,6 +119,42 @@ crossorigin="anonymous">
 							 </div>
 						  </div>
 	<!-- Les competances -->
+		
+					<div class="row" th:if="${competances != null}" >
+					 <div th:each="competance : ${competances}">
+							<div class="col-lg-6 col-md-6 col col-sm-6 " >
+									<div class="card border"  >  
+												    <div class="card-body"  th:if="${competance.Ctype =='téchnique'}">
+																	            
+												       <h5 class="card-title change_color"> Competances théchniques</h5>
+																	            
+													    <p class="card-text ">
+														  <label th:text="${competance.competance}"></label>
+														  <label th:text="${competance.niveau}"></label> 
+														 </p>
+													 </div>
+																	        
+										 </div>
+							</div>
+							
+							<div class="col-lg-6 col-md-6 col col-sm-6 " >
+								<div class="card border"  th:if="${competance.Ctype =='théorique'}" >  
+												    <div class="card-body" >
+																	            
+												       <h5 class="card-title change_color"> Competances théoriques</h5>
+																	            
+													    <p class="card-text "  >
+														  <label th:text="${competance.competance}"></label>
+														  <label th:text="${competance.niveau}"></label> 
+														 </p>
+													 </div>
+																	        
+										 </div>
+								 
+								</div>
+					</div>
+				</div>
+		<!--  -->
   </section>
  
 </div>

@@ -33,7 +33,7 @@ crossorigin="anonymous">
 														       	 	<label th:text="${competance.competance}" style="margin:5px; display: inline-block" > </label>
 																	</div>	
 																	<div class="col-lg-3 col-md-3 col-sm-3">			
-																	<!-- 1 star -->
+																					<!-- 1 star -->
 																					<p th:if="${competance.niveau ==3}" style="display: inline-block">
 																					    <span class="fa fa-star checked"></span><span class="fa fa-star "></span><span class="fa fa-star "></span>
 																						
@@ -50,9 +50,13 @@ crossorigin="anonymous">
 																				     </p>
 																</div>
 																<div class="col-lg-3 col-md-3 col-sm-3">
-																<p th:if="${competance.Ctype =='théorique'}">	<span class="badge badge-dark">Théorique</span> </p>
+																<!-- <p th:if="${competance.Ctype =='théorique'}">	<span class="badge badge-light">Théorique</span> </p>
 																<p th:if="${competance.Ctype =='téchnique'}">	<span class="badge badge-dark">Téchnique</span> </p>
-
+																	 -->
+																	<p th:switch="${competance.Ctype}">
+																	  <span th:case="théorique" class="badge badge-light">Théorique</span>
+																	  <span th:case="téchnique" class="badge badge-dark">Téchnique</span>
+																	</p>
 																</div>
 																<div class="col-lg-3 col-md-3 col-sm-3">
 																</div>
