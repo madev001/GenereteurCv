@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset = "utf-8"></meta>
+<meta charset="ISO-8859-1"></meta>
+<title>model 1</title>
+<link rel="stylesheet" 
+href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+crossorigin="anonymous"> </link>
+ <link href="/bootstrap/css/bootstrap.min.css"
+                rel="stylesheet" media="screen"/>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" media="all"></link>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<style  type="text/css" media="all">
+
+img {
+  border-radius: 50% !important;
+  width:200px !important;
+  height:200px !important;
+  margin-top:20px  !important;
+}
+
+
+body,html{
+height:100% !important;
+}
+
+.change_color{
+  color:#C70039 !important;
+}
+@page{
+       
+        margin: 0 !important;
+        padding:0 !important;
+        
+        }
+     #center-page{
+     height:100% !important;
+    position: relative !important;
+    width: 100% !important;
+     }
+.aside {
+  
+  background-color:#C70039 !important;
+  min-height: 100% !important;
+  height:100% !important;
+  width: 30% !important;
+  float: left !important;
+  position: absolute !important;
+  
+}
+section {
+  flex: 6 !important;
+  width: 70% !important;
+  float: right !important;
+}
+
+
+.card-title{
+text-decoration: underline overline !important;
+font-size: 2em !important;
+}
+.card-text{
+margin-left:30px !important;
+}
+svg{
+margin-left:10px !important;
+margin-right:10px !important;
+}
+.dp{
+font-size: 12px !important;
+margin-left:10px !important;
+}
+.langue,.competance{
+margin-left:10px !important;
+}
+span{
+float: right !important;
+margin-right:5px !important;
+}
+
+
+</style>
+
+</head>
+<body>
+
+<div id="center-page">
+	<div class="aside">
+		<div class="text-center" >
+			<img th:src="|data:image/png;base64,${utilisateur.Image}|" alt="Profile Image" ></img>
+		</div>
+
+		<div th:if="${utilisateur != null}">
+			<p class="text-center" style="font-size: 25px;font-weight: bold;">Contact</p>
+<!-- Telephone -->
+				
+				<label class="dp" th:text="${utilisateur.Tel}"></label><br></br>
+ <!-- Adresse -->
+				
+				<label class="dp" style="" th:text="${utilisateur.Adresse}+' '+${utilisateur.Ville}+' '+${utilisateur.CodePostal}"></label><br></br>
+ <!-- Adresse email -->
+				
+				<label class="dp" th:text="${utilisateur.Email}"></label><br></br> 
+ <!-- Date naissance -->
+			
+				<label class="dp" th:text="${utilisateur.DateNaissance}"></label><br></br>
+		</div>
+
+		<!-- Competances -->
+		<div th:if="${!competances.isEmpty()}">
+		<p class="text-center" style="font-size: 25px;font-weight: bold;"> Compétances</p>
+					 <div class="competance"  th:each="competance : ${competances}" >
+					
+					<label  th:text="${competance.competance}"></label>
+			 <!-- 3 stars -->
+					<span th:if="${competance.niveau ==3}"> Senior</span>
+		     <!-- 4 stars -->
+					<span th:if="${competance.niveau ==2}"> Medior</span>
+		     <!-- 5 stars -->
+					<span th:if="${competance.niveau ==1}"> Junior</span>
+														  
+					 </div>
+		</div>
+		 <!-- panel langue -->
+		<div  th:if="${langues != null}" >
+			<p class="text-center" style="font-size: 25px;font-weight: bold;" >Langues </p>
+			<div class="langue" th:each="langue : ${langues}" >
+				
+					<label th:text="${langue.Langue}"  > </label>
+				
+			<!-- 1 star -->
+					<span th:if="${langue.Niveau ==5}"> Debutant</span>
+		     <!-- 2 stars -->
+					<span th:if="${langue.Niveau ==4}"> Intermediaire</span>
+		     <!-- 3 stars -->
+					<span th:if="${langue.Niveau ==3}"> Courant</span>
+		     <!-- 4 stars -->
+					<span th:if="${langue.Niveau ==2}"> Bilingue</span>
+		     <!-- 5 stars -->
+					<span th:if="${langue.Niveau ==1}"> Langue Maternelle</span>
+				
+			</div>
+		</div>
+ <!--  -->
+	</div>
+<section>
+
+			  <h1 class="change_color" th:text="${utilisateur.prenom}+' '+${utilisateur.nom}" style="padding-bottom: 25px;"></h1>
+  <!-- Les experiences -->			  
+			 				 <div class="card border" style="margin:10px"  th:if="${!experiences.isEmpty()}">  
+									    <div class="card-body" >
+														            
+									       <h5 class="card-title change_color"> Experience</h5>
+														            
+										    <p class="card-text " th:each="experience : ${experiences}">
+											  <label th:text="${experience.Fonction}"></label><br></br>
+											  <label th:text="${experience.Depuis}"></label> - <label th:text="${experience.Jusqua}"></label>
+											</p>
+										 </div>
+														        
+							 </div>
+	<!-- les Formations -->													    
+	<div class="card border" style="margin-left:10px" th:if="${!formations.isEmpty()}" > 
+						  
+				<div class="card-body" >
+														            
+									<h5 class="card-title change_color" > Formation</h5>
+														            
+						 <div class="card-text" th:each="formation : ${formations}"  >
+								 <div class="langue-info">
+								 	 <label  th:text="${formation.Intitule}"></label> | <label th:text="${formation.Etablissement}"></label>
+								 	  <br></br>
+								 	 <label th:text="${formation.Formation_debut_mois} " style="font-size: 12px;"></label>-
+								 	 <label th:text="${formation.Formation_fin_mois}" style="font-size: 12px;"></label> 
+								 	  <br></br>
+								 </div>
+								 <div class="langue-desc">
+								 	 <p th:text="${formation.Description}" style="font-size: 11px;"></p>
+								 </div>
+						 </div>
+				 </div>
+	 </div>
+	<!-- Les competances -->
+		<!--
+					<div class="row" th:if="${competances != null}" >
+					 <div th:each="competance : ${competances}">
+							<div class="col-lg-6 col-md-6 col col-sm-6 " >
+									<div class="card border"  >  
+												    <div class="card-body"  th:if="${competance.Ctype =='téchnique'}">
+																	            
+												       <h5 class="card-title change_color"> Competances théchniques</h5>
+																	            
+													    <p class="card-text ">
+														  <label th:text="${competance.competance}"></label>
+														  <label th:text="${competance.niveau}"></label> 
+														 </p>
+													 </div>
+																	        
+										 </div>
+							</div>
+							
+							<div class="col-lg-6 col-md-6 col col-sm-6 " >
+								<div class="card border"  th:if="${competance.Ctype =='théorique'}" >  
+												    <div class="card-body" >
+																	            
+												       <h5 class="card-title change_color"> Competances théoriques</h5>
+																	            
+													    <p class="card-text "  >
+														  <label th:text="${competance.competance}"></label>
+														  <label th:text="${competance.niveau}"></label> 
+														 </p>
+													 </div>
+																	        
+										 </div>
+								 
+								</div>
+					</div>
+				</div>
+		  -->
+		<!-- <div class="row" th:if="${competances != null}" > -->
+		
+		<!--  -->
+						
+</section>
+ 
+</div>
+
+<!-- Data -->
+
+															
+														     
+</body>
+
+</html>

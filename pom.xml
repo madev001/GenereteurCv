@@ -17,6 +17,45 @@
 		<java.version>11</java.version>
 	</properties>
 	<dependencies>
+	<!-- https://mvnrepository.com/artifact/org.webjars/jquery -->
+<dependency>
+   <groupId>org.webjars</groupId>
+   <artifactId>jquery</artifactId>
+   <version>3.3.1-1</version>
+</dependency>
+ 
+<!-- https://mvnrepository.com/artifact/org.webjars/popper.js -->
+<dependency>
+   <groupId>org.webjars</groupId>
+   <artifactId>popper.js</artifactId>
+   <version>1.14.1</version>
+</dependency>
+ 
+<!-- https://mvnrepository.com/artifact/org.webjars/bootstrap -->
+<dependency>
+   <groupId>org.webjars</groupId>
+   <artifactId>bootstrap</artifactId>
+   <version>4.1.1</version>
+</dependency>
+	<!-- https://mvnrepository.com/artifact/org.xhtmlrenderer/flying-saucer-pdf -->    
+	<dependency>
+      <groupId>org.xhtmlrenderer</groupId>
+      <artifactId>flying-saucer-core</artifactId>
+      <version>9.1.1</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.xhtmlrenderer</groupId>
+      <artifactId>flying-saucer-pdf-itext5</artifactId>
+      <version>9.1.1</version>
+      <scope>compile</scope>
+    </dependency>
+		<dependency>
+		    <groupId>org.xhtmlrenderer</groupId>
+		    <artifactId>flying-saucer-pdf</artifactId>
+		    <version>9.1.1</version>
+		</dependency>
+			
 			<dependency>
 		    <groupId>org.hibernate.javax.persistence</groupId>
 		    <artifactId>hibernate-jpa-2.1-api</artifactId>

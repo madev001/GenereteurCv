@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
+<head>
+    <title>Compétance PDF</title>
+    <link rel="stylesheet" 
+href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+crossorigin="anonymous"> </link>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet"></link>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+<body>	
+				<a class="text-primary">wesh kho</a><a class="btn btn-success">wesh kho</a>
+   								 	
+				<h3 class="text-primary" th:text="${utilisateur.nom}+' '+${utilisateur.prenom}"></h3>
+								<div class="card border border-success" style="margin:10px" th:if="${competances != null}" th:each="competance : ${competances}">  
+														        <div class="card-body" >
+														            <div class="col-lg-3 col-md-3 col-sm-3">
+														       	 	<label th:text="${competance.competance}" style="margin:5px; display: inline-block" > </label>
+							    <span class="fa fa-star checked"></span><span class="fa fa-star "></span><span class="fa fa-star "></span>
+																	
+																	</div>	
+																	<div class="col-lg-3 col-md-3 col-sm-3">			
+																					<!-- 1 star -->
+																					<p th:if="${competance.niveau ==3}" style="display: inline-block">
+																					    <span class="fa fa-star checked"></span><span class="fa fa-star "></span><span class="fa fa-star "></span>
+																						
+																				     </p>
+																				     <!-- 2 stars -->
+																					<p th:if="${competance.niveau ==2}" style="display: inline-block">
+																					    <span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star "></span>
+																						
+																				     </p>
+																				     <!-- 3 stars -->
+																					<p th:if="${competance.niveau ==1}" style="display: inline-block">
+																					    <span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+																						
+																				     </p>
+															      </div>
+																
+																
+
+														        </div>
+							</div>
+
+				    
+</body>
+<style>
+.checked {
+  color: orange;
+}
+</style>
+
+</html>

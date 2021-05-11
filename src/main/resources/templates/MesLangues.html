@@ -111,6 +111,9 @@ crossorigin="anonymous">
 				    <div class="row text-center">
 				    	<a class=" btn btn-dark " th:href="@{/Model1?id=__${utilisateur.id}__}">Générer mon Cv !</a>
 				    </div>
+				    				    <a class="btn btn-primary" th:href="@{|/download-pdf?id=__${utilisateur.id}__|}"><span>Download PDF Document</span></a>
+				    				    <a class="btn btn-info" th:href="@{|/showpdf?id=__${utilisateur.id}__|}"><span>show pdf</span></a>
+				    
     </div>
 </body>
 <style>
