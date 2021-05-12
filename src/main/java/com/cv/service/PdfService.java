@@ -47,15 +47,15 @@ public class PdfService {
         this.templateEngine = templateEngine;
     }
 
-    public File generatePdf(Long id) throws IOException, DocumentException {
+    public File generatePdf(Long id,String model) throws IOException, DocumentException {
         Context context = getContext(id);
-        String html = loadAndFillTemplate(context);
+        String html = loadAndFillTemplate(context,model);
         return renderPdf(html);
     }
 
 
     private File renderPdf(String html) throws IOException, DocumentException {
-        File file = File.createTempFile("competances", ".pdf");
+        File file = File.createTempFile("MonCv", ".pdf");
         OutputStream outputStream = new FileOutputStream(file);
         ITextRenderer renderer = new ITextRenderer(20f * 4f / 3f, 20);
         renderer.setDocumentFromString(html,  new ClassPathResource("/templates/").getURL().toExternalForm());//, new ClassPathResource(PDF_RESOURCES).getURL().toExternalForm()
@@ -92,8 +92,9 @@ public class PdfService {
         return context;
     }
 
-    private String loadAndFillTemplate(Context context) {
-        return templateEngine.process("pdf_model1", context);
+    private String loadAndFillTemplate(Context context,String model) {
+        //return templateEngine.process("pdf_model1", context);
+        return templateEngine.process(model, context);
     }
 
 }

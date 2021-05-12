@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
+<head>
+    <title>Mes Loisires</title>
+    <link rel="stylesheet" 
+href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+crossorigin="anonymous"> 
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+   								 
+				<h3 th:text="${utilisateur.nom}+' '+${utilisateur.prenom}"></h3>
+								
+
+<!-- Panel Experiences -->								
+		
+				      <div class="panel panel-primary">
+				  <div class="panel-heading">
+				    <h3 class="panel-title">Mes Loisires</h3>
+				  </div>
+				  <div class="panel-body" >
+				
+				  <form th:action="@{/saveLoisire?id=__${utilisateur.id}__}" method="post" th:object="${loisire}">
+				    	
+				    	
+				    	<!-- Affichage des formations -->
+												    	<div class="card border border-success" style="margin:10px" th:if="${loisires != null}" th:each="loisire : ${loisires}">  
+														        <div class="card-body" >
+														           <div class="col-lg-3 col-md-3 col-sm-3">
+														       	 	<label th:text="${loisire.loisire}" style="margin:5px; display: inline-block" > </label>
+																	</div>	
+																	
+														
+																		  		</br>
+
+														        </div>
+														        <div class="card-footer text-center">
+														        <a class="btn btn-danger btn-sm float-right" th:href="@{/deleteLoisire(Loisire_id =__${loisire.id}__, Utilisateur_id =__${utilisateur.id}__)}" > 
+														        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+ 																 <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+																</svg>
+																Supprimer
+														        </a>
+														        </div>
+														    </div>
+				<div class="AddForm" style="display:none;">										    
+				    	<div class="row "  >
+				    	<!-- Ajouter des loisires -->
+						    <div class="col-lg-4 col-md-4 col-sm-4">
+						    <input type="text" class="form-control" placeholder="Ex : Lecture" th:field ="*{Loisire}">
+						    </div>
+						    
+						   
+						    
+				    	</div></br>
+				    	
+				    	
+				   </div>
+				    	<div class="row">
+				  			<a  class="add btn btn-warning col-lg-6 col-md-6 col-sm-4 offset-lg-2" style="margin:10px;">Ajouter une loisire</a>
+				  			<a class="cancel btn btn-danger col-lg-2 col-md-2 col-sm-2" style="display:none;">Annuler</a>
+				  			<button type="submit" class="btn btn-success pull-right " style="margin:10px;">
+				  			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-save-fill" viewBox="0 0 16 16">
+  							<path d="M8.5 1.5A1.5 1.5 0 0 1 10 0h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h6c-.314.418-.5.937-.5 1.5v7.793L4.854 6.646a.5.5 0 1 0-.708.708l3.5 3.5a.5.5 0 0 0 .708 0l3.5-3.5a.5.5 0 0 0-.708-.708L8.5 9.293V1.5z"/>
+							</svg>
+				  			Sauvegarder</button>
+				  		</div>
+				  		</form>
+				  </div>
+				  
+			</div></br> 	
+					<div class="row">
+					  	<a class=" btn btn-info pull-left" th:href="@{/Competances?id=__${utilisateur.id}__}">Mes experiences</a>
+					  	<a class=" btn btn-info pull-right" th:href="@{/Langues?id=__${utilisateur.id}__}">...</a>
+				    </div></br>
+				    <div class="row text-center">
+				    	<a class=" btn btn-dark " th:href="@{/Model1?id=__${utilisateur.id}__}">Générer mon Cv !</a>
+				    </div>
+				    <a class="btn btn-primary" th:href="@{|/download-pdf?id=__${utilisateur.id}__|}"><span>Download PDF Document</span></a>
+    </div>
+</body>
+<style>
+.checked {
+  color: orange;
+}
+</style>
+<script>
+
+$('.panel-heading').on('click', function() {
+    $(this).next('.panel-body').slideToggle("slow");
+    
+});
+
+
+$( ".add" ).click(function() {
+	  $( ".AddForm" ).show( "slow" );
+	  $( ".add" ).hide( "slow" );
+	  $( ".cancel" ).show( "slow" );
+	});
+
+$( ".cancel" ).click(function() {
+	  $( ".AddForm" ).hide( "slow" );
+	  $( ".add" ).show( "slow" );
+	  $( ".cancel" ).hide( "slow" );
+	});
+	
+$("#checkJusqua").click(function() {
+    if($(this).is(":checked")) {
+        $("#jusqu").hide(300);
+    } else {
+        $("#jusqu").show(200);
+    }
+});
+</script>
+</html>

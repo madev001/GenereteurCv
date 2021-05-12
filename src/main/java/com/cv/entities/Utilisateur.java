@@ -140,4 +140,6 @@ public class Utilisateur implements Serializable{
     private List<Competance> listCompetances = new ArrayList<Competance>();
     @OneToMany(mappedBy = "utilisateur", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Langue> listLangues = new ArrayList<Langue>();
+    @OneToMany(mappedBy = "utilisateur", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Loisire> listLoisires = new ArrayList<Loisire>();
 }

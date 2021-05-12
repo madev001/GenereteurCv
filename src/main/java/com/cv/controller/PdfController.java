@@ -34,9 +34,9 @@ public class PdfController {
     }
 
     @GetMapping(path="/download-pdf", produces="application/pdf")
-    public void downloadPDFResource(HttpServletResponse response,@RequestParam("id") Long id) {
+    public void downloadPDFResource(HttpServletResponse response,@RequestParam("id") Long id,@RequestParam("model") String model) {
         try {
-            Path file = Paths.get(pdfService.generatePdf(id).getAbsolutePath());
+            Path file = Paths.get(pdfService.generatePdf(id,model).getAbsolutePath());
             if (Files.exists(file)) {
                 response.setContentType("application/pdf");
                 response.addHeader("Content-Disposition",

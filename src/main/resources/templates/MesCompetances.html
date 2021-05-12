@@ -126,8 +126,11 @@ crossorigin="anonymous">
 				    <div class="row text-center">
 				    	<a class=" btn btn-dark " th:href="@{/Model1?id=__${utilisateur.id}__}">Générer mon Cv !</a>
 				    </div>
-				    <a class="btn btn-primary" th:href="@{|/download-pdf?id=__${utilisateur.id}__|}"><span>Download PDF Document</span></a>
-    </div>
+				   <!--  <a class="btn btn-primary" th:href="@{|/download-pdf?id=__${utilisateur.id}__|}"><span>Download PDF Document</span></a> -->
+    </div>			
+    <a class="btn btn-primary"	th:href="@{/download-pdf(id =__${utilisateur.id}__,model =__'pdf_model1'__)}"><span>Model 1</span></a>
+    <a class="btn btn-info"	th:href="@{/download-pdf(id =__${utilisateur.id}__,model =__'pdf_model2'__)}"><span>Model 2</span></a>
+
 </body>
 <style>
 .checked {

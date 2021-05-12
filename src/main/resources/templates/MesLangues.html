@@ -106,7 +106,7 @@ crossorigin="anonymous">
 			</div></br> 	
 					<div class="row">
 					  	<a class=" btn btn-info pull-left" th:href="@{/Formations?id=__${utilisateur.id}__}">Mes Formations</a>
-					  	<a class=" btn btn-info pull-right" >Mes competances</a>
+					  	<a class=" btn btn-info pull-right" th:href="@{/Loisire?id=__${utilisateur.id}__}">Mes loisires</a>
 				    </div></br>
 				    <div class="row text-center">
 				    	<a class=" btn btn-dark " th:href="@{/Model1?id=__${utilisateur.id}__}">Générer mon Cv !</a>
