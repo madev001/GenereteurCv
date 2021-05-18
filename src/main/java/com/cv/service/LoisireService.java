@@ -44,5 +44,5 @@ public class LoisireService {
 	        mav.addObject("loisire",new Formation());
 	        mav.addObject("utilisateur",u);
 	        return mav;
-}
+	}
 }

@@ -119,20 +119,27 @@ crossorigin="anonymous">
 				  </div>
 				  
 			</div></br> 	
-					<div class="row">
-					  	<a class=" btn btn-info pull-left" th:href="@{/Experiences?id=__${utilisateur.id}__}">Mes experiences</a>
-					  	<a class=" btn btn-info pull-right" th:href="@{/Langues?id=__${utilisateur.id}__}">Mes Langues</a>
-				    </div></br>
+			
+			<a class="btn btn-primary"	th:href="@{/download-pdf(id =__${utilisateur.id}__,model =__'pdf_model1'__)}"><span>Model 1</span></a>
+    <a class="btn btn-info"	th:href="@{/download-pdf(id =__${utilisateur.id}__,model =__'pdf_model2'__)}"><span>Model 2</span></a>
+			
+			
+					<div class="row text-center">
+					  	<a class=" btn btn-primary" th:href="@{/Langues?id=__${utilisateur.id}__}">Mes Langues</a>
+				    </div>
 				    <div class="row text-center">
-				    	<a class=" btn btn-dark " th:href="@{/Model1?id=__${utilisateur.id}__}">Générer mon Cv !</a>
+				    	<a th:href="@{/Experiences?id=__${utilisateur.id}__}">Revenir aux experiences !</a>
 				    </div>
 				   <!--  <a class="btn btn-primary" th:href="@{|/download-pdf?id=__${utilisateur.id}__|}"><span>Download PDF Document</span></a> -->
-    </div>			
-    <a class="btn btn-primary"	th:href="@{/download-pdf(id =__${utilisateur.id}__,model =__'pdf_model1'__)}"><span>Model 1</span></a>
-    <a class="btn btn-info"	th:href="@{/download-pdf(id =__${utilisateur.id}__,model =__'pdf_model2'__)}"><span>Model 2</span></a>
-
-</body>
+    </body>
 <style>
+.container {
+
+    height: 100%;
+    width:100%;
+    position: absolute;
+    background-image: linear-gradient(185deg, #63E2C6 40%,#F6F6F4 40%);
+}
 .checked {
   color: orange;
 }

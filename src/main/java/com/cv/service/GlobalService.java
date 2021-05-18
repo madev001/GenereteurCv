@@ -18,6 +18,7 @@ import com.cv.entities.Competance;
 import com.cv.entities.Experience;
 import com.cv.entities.Formation;
 import com.cv.entities.Langue;
+import com.cv.entities.Loisire;
 import com.cv.entities.Utilisateur;
 import com.cv.repository.CompetanceRepository;
 import com.cv.repository.UtilisateurRepository;
@@ -37,18 +38,40 @@ public class GlobalService {
 	CompetanceRepository cr;
 	@Autowired
 	UtilisateurRepository ur;
+	@Autowired
+	LoisireService lservice;
 	
 	public  ModelAndView getAllinfo(Long id)
 	{
-		ModelAndView mav = new ModelAndView("Model1");
+		ModelAndView mav = new ModelAndView("pdf_model1");
 		Utilisateur u = ur.getOne(id);
 		List<Formation> formations = fs.listeFormation(u);
 		List<Experience> experiences = es.getAllExperience(u);
 		List<Langue> langues = ls.getAllLangue(u);
 		List<Competance> competances = cr.getAllCompetance(u);
+		List<Loisire> loisires = lservice.listeLoisire(u);
 		mav.addObject("utilisateur",u);
 		mav.addObject("formations",formations);
 		mav.addObject("langues",langues);
+		mav.addObject("loisires",loisires);
+		mav.addObject("experiences",experiences);
+		mav.addObject("competances",competances);
+        return mav;
+		
+	}
+	public  ModelAndView getAllinfo2(Long id)
+	{
+		ModelAndView mav = new ModelAndView("pdf_model2");
+		Utilisateur u = ur.getOne(id);
+		List<Formation> formations = fs.listeFormation(u);
+		List<Experience> experiences = es.getAllExperience(u);
+		List<Langue> langues = ls.getAllLangue(u);
+		List<Competance> competances = cr.getAllCompetance(u);
+		List<Loisire> loisires = lservice.listeLoisire(u);
+		mav.addObject("utilisateur",u);
+		mav.addObject("formations",formations);
+		mav.addObject("langues",langues);
+		mav.addObject("loisires",loisires);
 		mav.addObject("experiences",experiences);
 		mav.addObject("competances",competances);
         return mav;

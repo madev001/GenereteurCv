@@ -16,10 +16,10 @@ crossorigin="anonymous"> </link>
 <style  type="text/css" media="all">
 
 img {
-  border-radius: 50% !important;
-  width:200px !important;
-  height:200px !important;
+  width:80% !important;
+  height:50% !important;
   margin-top:20px  !important;
+  
 }
 
 
@@ -44,8 +44,8 @@ height:100% !important;
 .aside {
   
   background-color:#C70039 !important;
-  min-height: 100% !important;
-  height:100% !important;
+  height: 100% !important;
+  min-height:100% !important;
   width: 30% !important;
   float: left !important;
   position: absolute !important;
@@ -70,7 +70,7 @@ margin-left:10px !important;
 margin-right:10px !important;
 }
 .dp{
-font-size: 12px !important;
+font-size: 100% !important;
 margin-left:10px !important;
 }
 .langue,.competance{
@@ -90,10 +90,11 @@ margin-right:5px !important;
 <div id="center-page">
 	<div class="aside">
 		<div class="text-center" >
-			<img th:src="|data:image/png;base64,${utilisateur.Image}|" style="border-radius: 50% !important;" alt="Profile Image" ></img> 
+			<img th:src="|data:image/png;base64,${utilisateur.Image}|"  alt="Profile Image" ></img> 
 		</div>
 		<div th:if="${utilisateur != null}">
-			<p class="text-center" style="font-size: 25px;font-weight: bold;">Contact</p>
+		
+			<p class="text-center" style="font-size: 170%;font-weight: bold;">Contact</p>
 <!-- Telephone -->
 				
 				<label class="dp" th:text="${utilisateur.Tel}"></label><br></br>
@@ -110,7 +111,7 @@ margin-right:5px !important;
 
 		<!-- Competances -->
 		<div th:if="${!competances.isEmpty()}">
-		<p class="text-center" style="font-size: 25px;font-weight: bold;"> Compétances</p>
+		<p class="text-center" style="font-size: 170%;font-weight: bold;"> Compétances</p>
 					 <div class="competance"  th:each="competance : ${competances}" >
 					
 					<label  th:text="${competance.competance}"></label>
@@ -124,8 +125,8 @@ margin-right:5px !important;
 					 </div>
 		</div>
 		 <!-- panel langue -->
-		<div  th:if="${langues != null}" >
-			<p class="text-center" style="font-size: 25px;font-weight: bold;" >Langues </p>
+		<div th:if="${!langues.isEmpty()}">
+			<p class="text-center" style="font-size: 170%;font-weight: bold;" >Langues </p>
 			<div class="langue" th:each="langue : ${langues}" >
 				
 					<label th:text="${langue.Langue}"  > </label>
@@ -144,6 +145,15 @@ margin-right:5px !important;
 			</div>
 		</div>
  <!--  -->
+ <!-- panel loisire -->
+		<div  th:if="${loisires != null}" >
+			<p class="text-center" style="font-size: 170%;font-weight: bold;" >Loisire </p>
+			<div class="loisire" th:each="loisire : ${loisires}" >
+				
+					<label th:text="${loisire.loisire}"  > </label>
+			</div>
+		</div>
+ 
 	</div>
 <section>
 

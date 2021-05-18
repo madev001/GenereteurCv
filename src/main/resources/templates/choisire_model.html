@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
+<head>
+    <title>Choisire le model</title>
+    <link rel="stylesheet" 
+href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+crossorigin="anonymous"> 
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+		<div class="container">
+		
+		    <div class="row">
+					<div class="col-lg-4 col-md-4 col-sm-4 text-center">
+		    		<iframe th:src="@{/pdf_model1?id=__${utilisateur.id}__}" scrolling="no"></iframe>
+				    				<div class="form-check form-check-inline">
+									  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+									  <label class="form-check-label" for="inlineRadio1">Black</label>
+									</div>
+									<div class="form-check form-check-inline">
+									  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+									  <label class="form-check-label" for="inlineRadio2">Orange</label>
+									</div>
+									
+		    		
+		    		<a class="btn btn-info" th:href="@{/download-pdf(id =__${utilisateur.id}__,model =__'pdf_model1'__)}">Télécharger ce Cv</a>
+		   			 </div>
+		    	<!-- 	
+		    		<div class="col-lg-4 col-md-4 col-sm-4 text-center">
+				 		<iframe th:src="@{/pdf_model1?id=__${utilisateur.id}__}" scrolling="no"></iframe>
+		    		<a class="btn btn-info">Télécharger ce Cv</a>
+		    		</div> 
+		    	-->
+				    <div class="col-lg-4 col-md-4 col-sm-4 text-center">
+				    	<iframe th:src="@{/pdf_model2?id=__${utilisateur.id}__}" scrolling="no" name="model2"></iframe>  	
+<!-- 				    	<a class="btn btn-info" th:href="@{/download-pdf(id =__${utilisateur.id}__,model =__'pdf_model2'__)}">Télécharger ce Cv</a>
+ -->
+				    	<a class="btn btn-info" id="t" th:href="@{/download-pdf(id =__${utilisateur.id}__,model =__'pdf_model2'__)}">Télécharger ce Cv</a>
+
+				    </div>	
+				    	<!-- <a th:href="@{/pdf_model2_green?id=__${utilisateur.id}__}" id="green2" target="model2">Green</a> -
+						<a th:href="@{/pdf_model2?id=__${utilisateur.id}__}" id="gold2" target="model2">Gold</a> -->
+		    </div>
+	 </div>
+
+</body>
+<script type="text/javascript">
+$("a#green2").click(function() {
+    
+    var theHref = $("a#t").attr("href");
+    $("a#t").attr("href","@{/download-pdf(id =__${utilisateur.id}__,model =__'pdf_model1'__)}");
+
+});
+				    	
+$("a#gold2").click(function() {
+    
+    var theHref = $("a#t").attr("href");
+    
+    $("a#t").attr("href","@{/download-pdf(id =__${utilisateur.id}__,model =__'pdf_model2'__)}");
+
+});
+</script>
+<style>
+.row{
+margin:2%;
+}
+ifarme{
+overflow: hidden;
+width: 860px;
+height: 100%;
+position: absolute;
+
+}
+.container {
+
+    height: 100%;
+    width:100%;
+    position: absolute;
+    background-image: linear-gradient(185deg, #63E2C6 40%,#F6F6F4 40%);
+}
+
+</style>
+
+
+</html>

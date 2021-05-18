@@ -11,10 +11,23 @@ crossorigin="anonymous">
 </head>
 <body>
     <div class="container">
-       			<h2 class="text-dark text-center">Rédiger rapidement un CV professionnel</h2>
+       			<h2 class="text-dark text-center text-info">Rédiger rapidement un CV professionnel</h2>
        			<div class="row text-center">
-       			<a class="btn btn-success" th:href=@{DonneesPersonelles}>Vas y !</a>
+       			<a class="btn btn-success " th:href=@{DonneesPersonelles}>Vas y !</a>
        			</div>
            </div>
 </body>
+<style>
+.container {
+
+    height: 100%;
+    width:100%;
+    position: absolute;
+    background-image: linear-gradient(185deg, #63E2C6 40%,#F6F6F4 40%);
+}
+h2,a{
+  padding: 120px 0;
+  text-align: center;
+}
+</style>
 </html>

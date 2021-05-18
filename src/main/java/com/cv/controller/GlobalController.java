@@ -22,6 +22,7 @@ import com.cv.entities.Competance;
 import com.cv.entities.Experience;
 import com.cv.entities.Formation;
 import com.cv.entities.Langue;
+import com.cv.entities.Loisire;
 import com.cv.entities.Utilisateur;
 import com.cv.repository.CompetanceRepository;
 import com.cv.repository.UtilisateurRepository;
@@ -45,5 +46,23 @@ public class GlobalController {
 		return globalService.getAllinfo(id);
 	}
 	
-	
+	@RequestMapping(value = "/pdf_model1",method = RequestMethod.GET)
+	public ModelAndView model1(@RequestParam("id") Long id)
+	{
+		return globalService.getAllinfo(id);
+	}
+	@RequestMapping(value = "/pdf_model2",method = RequestMethod.GET)
+	public ModelAndView model2(@RequestParam("id") Long id)
+	{
+		return globalService.getAllinfo2(id);
+	}
+	@RequestMapping(value = "/models",method = RequestMethod.GET)
+	public ModelAndView choisireModel(@RequestParam("id") Long id)
+	{
+        
+        Utilisateur u = ur.getUtilisateur(id);
+        ModelAndView mav = new ModelAndView("choisire_model");
+        mav.addObject("utilisateur",u);
+        return mav;
+	}
 }

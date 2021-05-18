@@ -34,7 +34,7 @@ public class LoisireController {
         //get loisire
         List<Loisire> l =ls.listeLoisire(u);
         mav.addObject("loisires",l);
-        mav.addObject("loisire",new Competance());
+        mav.addObject("loisire",new Loisire());
         mav.addObject("utilisateur",u);
         return mav;
     }
@@ -42,24 +42,25 @@ public class LoisireController {
 	@RequestMapping(value = "/Loisire",method = RequestMethod.GET)
 	public ModelAndView loadCompetance(@RequestParam("id") Long id)
 	{
-        ModelAndView mav = new ModelAndView("MesLoisires");
+        
         Utilisateur u = ur.getUtilisateur(id);
         List<Loisire> l =ls.listeLoisire(u);
+        ModelAndView mav = new ModelAndView("MesLoisires");
         mav.addObject("loisires",l);
-        mav.addObject("loisire",new Competance());
+        mav.addObject("loisire",new Loisire());
         mav.addObject("utilisateur",u);
         return mav;
 	}
 
 	@RequestMapping(value = "/deleteLoisire",method = RequestMethod.GET)
-	public ModelAndView suppExperience(@RequestParam("Competance_id") Long id,@RequestParam("Utilisateur_id") Long Utilisateur_id)
+	public ModelAndView suppExperience(@RequestParam("Loisire_id") Long id,@RequestParam("Utilisateur_id") Long Utilisateur_id)
 	{
 		ModelAndView mav = new ModelAndView("MesLoisires");
 		ls.supprimerLoisire(id);
 		Utilisateur u = ur.getUtilisateur(Utilisateur_id);
 		List<Loisire> l =ls.listeLoisire(u);
         mav.addObject("loisires",l);
-        mav.addObject("loisire",new Competance());
+        mav.addObject("loisire",new Loisire());
         mav.addObject("utilisateur",u);
 	        return mav;
 	}

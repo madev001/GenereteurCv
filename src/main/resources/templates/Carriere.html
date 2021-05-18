@@ -14,7 +14,6 @@ crossorigin="anonymous">
    								 
 				
 				
-	              <img th:src="|data:image/png;base64,${utilisateur.Image}|" style="width:40px;height:40px;" alt="Profile Image" class="img-raised d-inline ">
 				 <h3 th:text="${utilisateur.nom}+' '+${utilisateur.prenom}" class="d-inline"></h3>
 								
 		      <div class="panel panel-primary">
@@ -87,14 +86,7 @@ crossorigin="anonymous">
 							    <label for="FormControlTextarea">Description</label>
 							    <textarea class="form-control" id="FormControlTextarea" rows="4" th:field="*{Description}"></textarea>
 							 </div>
-						   <!-- 
-						    <div class="col-lg-3 col-md-2 col-sm-2">
-						    <input type="text" class="form-control" placeholder="Jusqu'au quel  mois" th:field ="*{Formation_fin_mois}">
-						    </div>
-						    <div class="col-lg-3 col-md-2 col-sm-2 ">
-						    <input type="text" class="form-control" placeholder="Jusqu'au quelle année" th:field ="*{Formation_fin_annee}">
-						    </div>
-						     -->
+				
 				    	</div></br>
 				   </div>
 				    	<div class="row">
@@ -111,13 +103,21 @@ crossorigin="anonymous">
 				  
 			</div></br> 	
 
-			<div class="row">
-					<a class=" btn btn-info pull-left" >Mes Données personelles</a>
-					<a class=" btn btn-info pull-right" th:href="@{/Experiences?id=__${utilisateur.id}__}">Mes Experiences</a>
+			<div class="row text-center" >
+					<a class=" btn btn-primary" stylr="border-radius:50%" th:href="@{/Experiences?id=__${utilisateur.id}__}">Mes Experiences</a>
 			</div>
 
     </div>
 </body>
+<style>
+.container {
+
+    height: 100%;
+    width:100%;
+    position: absolute;
+    background-image: linear-gradient(185deg, #63E2C6 40%,#F6F6F4 40%);
+}
+</style>
 <script>
 $('.panel-heading').on('click', function() {
     $(this).next('.panel-body').slideToggle("slow");

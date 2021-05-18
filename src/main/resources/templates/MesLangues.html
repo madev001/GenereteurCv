@@ -104,12 +104,11 @@ crossorigin="anonymous">
 				  </div>
 				  
 			</div></br> 	
-					<div class="row">
-					  	<a class=" btn btn-info pull-left" th:href="@{/Formations?id=__${utilisateur.id}__}">Mes Formations</a>
-					  	<a class=" btn btn-info pull-right" th:href="@{/Loisire?id=__${utilisateur.id}__}">Mes loisires</a>
-				    </div></br>
+					<div class="row text-center">
+					  	<a class=" btn btn-primary" th:href="@{/Loisire?id=__${utilisateur.id}__}">Mes loisires</a>
+				    </div>
 				    <div class="row text-center">
-				    	<a class=" btn btn-dark " th:href="@{/Model1?id=__${utilisateur.id}__}">Générer mon Cv !</a>
+				    	<a  th:href="@{/Competances?id=__${utilisateur.id}__}">Revenir aux Compétances !</a>
 				    </div>
 				    				    <a class="btn btn-primary" th:href="@{|/download-pdf?id=__${utilisateur.id}__|}"><span>Download PDF Document</span></a>
 				    				    <a class="btn btn-info" th:href="@{|/showpdf?id=__${utilisateur.id}__|}"><span>show pdf</span></a>
@@ -117,6 +116,13 @@ crossorigin="anonymous">
     </div>
 </body>
 <style>
+.container {
+
+    height: 100%;
+    width:100%;
+    position: absolute;
+    background-image: linear-gradient(185deg, #63E2C6 40%,#F6F6F4 40%);
+}
 .checked {
   color: orange;
 }

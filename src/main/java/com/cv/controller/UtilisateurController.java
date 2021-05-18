@@ -34,21 +34,6 @@ public class UtilisateurController {
 	}
 	
 	
-	/*@GetMapping("/DonneesPersonelles")
-	public String GetDonneesPersonelles(@ModelAttribute Model model) {
-		model.addAttribute("utilisateur",new Utilisateur());
-		return "DonneesPersonelles";
-	}*/
-	
-	/*@GetMapping("/Carriere")
-	public ModelAndView getCarriereForm()
-	{
-		ModelAndView mav = new ModelAndView("Carriere");
-        mav.addObject("utilisateur",new Utilisateur());
-        //initialisé l'objet formation pour l"ajouter
-        mav.addObject("formation",new Formation());
-        return mav;
-	}*/
 	
 	@GetMapping("/DonneesPersonelles")
 	public ModelAndView getProfileForm()

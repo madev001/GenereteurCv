@@ -4,6 +4,7 @@ import com.cv.entities.Competance;
 import com.cv.entities.Experience;
 import com.cv.entities.Formation;
 import com.cv.entities.Langue;
+import com.cv.entities.Loisire;
 import com.cv.entities.Utilisateur;
 import com.cv.repository.CompetanceRepository;
 import com.cv.repository.UtilisateurRepository;
@@ -40,6 +41,8 @@ public class PdfService {
 	LangueService ls;
 	@Autowired
 	CompetanceRepository cr;
+	@Autowired
+	LoisireService lservice;
 	
     @Autowired
     public PdfService(GlobalService globalService, SpringTemplateEngine templateEngine) {
@@ -83,6 +86,8 @@ public class PdfService {
 		List<Experience> experiences = es.getAllExperience(u);
 		List<Langue> langues = ls.getAllLangue(u);
 		List<Competance> competances = cr.getAllCompetance(u);
+		List<Loisire> loisires = lservice.listeLoisire(u);
+		context.setVariable("loisires",loisires);
 		context.setVariable("utilisateur",u);
 		context.setVariable("formations",formations);
 		context.setVariable("langues",langues);

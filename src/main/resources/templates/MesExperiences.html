@@ -100,15 +100,24 @@ crossorigin="anonymous">
 				  </div>
 				  
 			</div></br> 	
-					<div class="row">
-					  	<a class=" btn btn-info pull-left" th:href="@{/Formations?id=__${utilisateur.id}__}">Mes Formations</a>
-					  	<a class=" btn btn-info pull-right" th:href="@{/Competances?id=__${utilisateur.id}__}">Mes competances</a>
-				    </div></br>
+					<div class="row text-center">
+					  	<!-- <a class=" btn btn-info pull-left" th:href="@{/Formations?id=__${utilisateur.id}__}">Mes Formations</a> -->
+					  	<a class=" btn btn-primary" th:href="@{/Competances?id=__${utilisateur.id}__}">Mes competances</a>
+				    </div>
 				    <div class="row text-center">
-				    	<a class=" btn btn-dark " th:href="@{/Model1?id=__${utilisateur.id}__}">Générer mon Cv !</a>
+				    	<a  th:href="@{/Formations?id=__${utilisateur.id}__}">Revenir en Formations </a>
 				    </div>
     </div>
 </body>
+<style>
+.container {
+
+    height: 100%;
+    width:100%;
+    position: absolute;
+    background-image: linear-gradient(185deg, #63E2C6 40%,#F6F6F4 40%);
+}
+</style>
 <script>
 $('.panel-heading').on('click', function() {
     $(this).next('.panel-body').slideToggle("slow");
