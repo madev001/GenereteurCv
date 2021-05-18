@@ -1,7 +1,7 @@
 node{
   stage('SCM chekout'){
     
-      git branch: 'main', url: 'https://github.com/madev001/GenereteurCv.git'
+      git branch: 'master', url: 'https://github.com/madev001/GenereteurCv.git'
   }
     stage('Compile-Package'){
       // Maven home path
