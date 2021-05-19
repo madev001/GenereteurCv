@@ -28,7 +28,7 @@ height:100% !important;
 }
 
 .change_color{
-  color:#C70039 !important;
+  color:#256F6B !important;
 }
 @page{
        
@@ -43,7 +43,7 @@ height:100% !important;
      }
 .aside {
   
-  background-color:#C70039 !important;
+  background-color:#256F6B !important;
   height: 100% !important;
   min-height:100% !important;
   width: 30% !important;
@@ -90,7 +90,7 @@ margin-right:5px !important;
 <div id="center-page">
 	<div class="aside">
 		<div class="text-center" th:if="${!utilisateur.Image.isEmpty()}">
-			<img th:src="|data:image/png;base64,${utilisateur.Image}|"  alt="Profile Image" ></img> 
+			<img th:src="|data:image/png;base64,${utilisateur.Image}|"  ></img> 
 		</div>
 		<div th:if="${!utilisateur.Nom.isEmpty()}">
 		
@@ -146,7 +146,7 @@ margin-right:5px !important;
 		</div>
  <!--  -->
  <!-- panel loisire -->
-		<div  th:if="${!loisires.isEmpty()}" >
+		<div   th:if="${!loisires.isEmpty()}" >
 			<p class="text-center" style="font-size: 170%;font-weight: bold;" >Loisire </p>
 			<div class="loisire" th:each="loisire : ${loisires}" >
 				
@@ -156,10 +156,9 @@ margin-right:5px !important;
  
 	</div>
 <section>
-<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>       
 
 			  <h1 class="change_color" th:text="${utilisateur.prenom}+' '+${utilisateur.nom}" style="padding-bottom: 25px;"></h1>
-  <!-- Les experiences -->	
+  <!-- Les experiences -->		
   							<div class="row profile" style="margin:10px " th:if="${profile !=null}">
   								<p th:utext="${profile.profile}"></p>
   							</div>		  
@@ -177,8 +176,7 @@ margin-right:5px !important;
 											 	 <p th:utext="${experience.Description}" style="font-size: 11px;"></p>
 											 </div>	
 										</div>
-								 </div>
-														        
+								 </div>	        
 							 </div>
 	<!-- les Formations -->													    
 	<div class="card border" style="margin-left:10px" th:if="${!formations.isEmpty()}" > 

@@ -28,7 +28,7 @@ height:100% !important;
 }
 
 .change_color{
-  color:#C70039 !important;
+  color:#BEBEBE !important;
 }
 @page{
        
@@ -43,7 +43,7 @@ height:100% !important;
      }
 .aside {
   
-  background-color:#C70039 !important;
+  background-color:#BEBEBE !important;
   height: 100% !important;
   min-height:100% !important;
   width: 30% !important;
@@ -156,10 +156,9 @@ margin-right:5px !important;
  
 	</div>
 <section>
-<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>       
 
 			  <h1 class="change_color" th:text="${utilisateur.prenom}+' '+${utilisateur.nom}" style="padding-bottom: 25px;"></h1>
-  <!-- Les experiences -->	
+  <!-- Les experiences -->		
   							<div class="row profile" style="margin:10px " th:if="${profile !=null}">
   								<p th:utext="${profile.profile}"></p>
   							</div>		  

@@ -15,64 +15,181 @@ crossorigin="anonymous">
 		<div class="container">
 		
 		    <div class="row">
-					<div class="col-lg-4 col-md-4 col-sm-4 text-center">
-		    		<iframe th:src="@{/pdf_model1?id=__${utilisateur.id}__}" scrolling="no"></iframe>
-				    				<div class="form-check form-check-inline">
-									  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-									  <label class="form-check-label" for="inlineRadio1">Black</label>
-									</div>
-									<div class="form-check form-check-inline">
-									  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-									  <label class="form-check-label" for="inlineRadio2">Orange</label>
-									</div>
-									
+				<!-- 	<div class="col-lg-6 col-md-6 col-sm-10 text-center">
+		    		<iframe th:src="@{/pdf_model1?id=__${utilisateur.id}__}" scrolling="no"></iframe>	
 		    		
-		    		<a class="btn btn-info" th:href="@{/download-pdf(id =__${utilisateur.id}__,model =__'pdf_model1'__)}">Télécharger ce Cv</a>
+		    		</br><a class="btn btn-info" th:href="@{/download-pdf(id =__${utilisateur.id}__,model =__'pdf_model1'__)}">Télécharger ce Cv</a>
 		   			 </div>
-		    	<!-- 	
-		    		<div class="col-lg-4 col-md-4 col-sm-4 text-center">
-				 		<iframe th:src="@{/pdf_model1?id=__${utilisateur.id}__}" scrolling="no"></iframe>
-		    		<a class="btn btn-info">Télécharger ce Cv</a>
-		    		</div> 
-		    	-->
-				    <div class="col-lg-4 col-md-4 col-sm-4 text-center">
+		     -->
+		    			<div class=" col-lg-6 col-md-6 col-sm-10 text-center">
+				    	<iframe th:src="@{/pdf_model1?id=__${utilisateur.id}__}" scrolling="no" name="model1"></iframe>  
+
+						<!--  -->
+								</br>	<div class="clr">
+								  <a th:href="@{/pdf_model1_green?id=__${utilisateur.id}__}" id="green" target="model1"><div class='box green'></div>
+								  </a>
+								</div>
+								
+								<div class="clr">
+								 <a th:href="@{/pdf_model1?id=__${utilisateur.id}__}" id="grenat" target="model1"> <div class='box grenat'></div>
+								 </a>
+								</div>
+								
+								<div class="clr">
+								 <a th:href="@{/pdf_model1_grey?id=__${utilisateur.id}__}" id="grey" target="model1"> <div class='box grey'></div>
+								 </a>
+								</div>
+						
+						<!--  -->
+						
+				    	</br><a class="btn btn-info" id="cv1_green" th:href="@{/download-pdf(id =__${utilisateur.id}__,model =__'pdf_model1_green'__)}" >Télécharger le Cv en vert</a>
+				    	<a class="btn btn-info" id="cv1" th:href="@{/download-pdf(id =__${utilisateur.id}__,model =__'pdf_model1'__)}">Télécharger le Cv en grenat</a>
+						<a class="btn btn-info" id="cv1_grey" th:href="@{/download-pdf(id =__${utilisateur.id}__,model =__'pdf_model1_grey'__)}">Télécharger le Cv en gris</a>
+						
+				    </div>	
+		    <!--  -->
+				    <div class=" col-lg-6 col-md-6 col-sm-10 text-center">
 				    	<iframe th:src="@{/pdf_model2?id=__${utilisateur.id}__}" scrolling="no" name="model2"></iframe>  	
 <!-- 				    	<a class="btn btn-info" th:href="@{/download-pdf(id =__${utilisateur.id}__,model =__'pdf_model2'__)}">Télécharger ce Cv</a>
- -->
-				    	<a class="btn btn-info" id="t" th:href="@{/download-pdf(id =__${utilisateur.id}__,model =__'pdf_model2'__)}">Télécharger ce Cv</a>
 
+ -->					
+ 							</br>	<div class="clr">
+								  <a th:href="@{/pdf_model2_green?id=__${utilisateur.id}__}" id="green2" target="model2"><div class='box green'></div>
+								  </a>
+								</div>
+								
+								<div class="clr">
+								 <a th:href="@{/pdf_model2?id=__${utilisateur.id}__}" id="gold2" target="model2"> <div class='box gold'></div>
+								 </a>
+								</div>
+								
+								<div class="clr">
+								 <a th:href="@{/pdf_model2_grey?id=__${utilisateur.id}__}" id="grey2" target="model2"> <div class='box grey'></div>
+								 </a>
+								</div>
+ 						<!--  
+ 						</br><a th:href="@{/pdf_model2_green?id=__${utilisateur.id}__}" id="green2" target="model2">Green</a> -
+						<a th:href="@{/pdf_model2?id=__${utilisateur.id}__}" id="gold2" target="model2">Gold</a>
+						<a th:href="@{/pdf_model2_grey?id=__${utilisateur.id}__}" id="grey2" target="model2">Grey</a>-->
+						
+				    	</br><a class="btn btn-info" id="cv2_green" th:href="@{/download-pdf(id =__${utilisateur.id}__,model =__'pdf_model2_green'__)}" >Télécharger le Cv en vert</a>
+				    	<a class="btn btn-info" id="cv2" th:href="@{/download-pdf(id =__${utilisateur.id}__,model =__'pdf_model2'__)}">Télécharger le Cv en Or</a>
+						<a class="btn btn-info" id="cv2_grey" th:href="@{/download-pdf(id =__${utilisateur.id}__,model =__'pdf_model2_grey'__)}">Télécharger le Cv en gris</a>
+						
 				    </div>	
-				    	<!-- <a th:href="@{/pdf_model2_green?id=__${utilisateur.id}__}" id="green2" target="model2">Green</a> -
-						<a th:href="@{/pdf_model2?id=__${utilisateur.id}__}" id="gold2" target="model2">Gold</a> -->
+				 
+				 		 
 		    </div>
+		    		<div class="row text-center">
+					  	<a class=" btn btn-warning" th:href="@{/}">Générer un autre Cv</a>
+				    </div>
+				    <div class="row text-center">
+				    	<a  th:href="@{/Loisire?id=__${utilisateur.id}__}">Revenir au Loisire !</a>
+				    </div>
+		    
+		    
 	 </div>
 
 </body>
 <script type="text/javascript">
+$( document ).ready(function() {
+	$("a#cv2_green").hide();
+	$("a#cv2_grey").hide();
+	$("a#cv1_green").hide();
+	$("a#cv1_grey").hide();
+});
+
+//Choisire la couleur + dispay bouttons telechargement
 $("a#green2").click(function() {
     
-    var theHref = $("a#t").attr("href");
-    $("a#t").attr("href","@{/download-pdf(id =__${utilisateur.id}__,model =__'pdf_model1'__)}");
+   
+    $("a#cv2").hide();
+    $("a#cv2_grey").hide();
+    $("a#cv2_green").show();
 
 });
-				    	
 $("a#gold2").click(function() {
     
-    var theHref = $("a#t").attr("href");
+	   
+    $("a#cv2_green").hide();
+    $("a#cv2_grey").hide();
+    $("a#cv2").show();
+
+});
+$("a#grey2").click(function() {
     
-    $("a#t").attr("href","@{/download-pdf(id =__${utilisateur.id}__,model =__'pdf_model2'__)}");
+	   
+    $("a#cv2_green").hide();
+    $("a#cv2").hide();
+    $("a#cv2_grey").show();
+
+});
+//premier model
+$("a#green").click(function() {
+    
+   
+    $("a#cv1").hide();
+    $("a#cv1_grey").hide();
+    $("a#cv1_green").show();
+
+});
+$("a#grenat").click(function() {
+    
+	   
+    $("a#cv1_green").hide();
+    $("a#cv1_grey").hide();
+    $("a#cv1").show();
+
+});
+$("a#grey").click(function() {
+    
+	   
+    $("a#cv1_green").hide();
+    $("a#cv1").hide();
+    $("a#cv1_grey").show();
 
 });
 </script>
 <style>
+.clr {
+    display : inline-block;
+    align-items : center;
+    margin-bottom: 15px;
+}
+.box {
+  height: 20px;
+  width: 20px;
+  border: 1px solid black;
+  margin-right : 5px;
+  display : inline-block;
+  border-radius:50%;
+}
+
+.grenat {
+  background-color: #C70039;
+  display : inline-block;
+}
+.gold {
+  background-color: #FFD700;
+  display : inline-block;
+}
+
+.green {
+  background-color: #256F6B;
+  display : inline-block;
+}
+
+.grey {
+  background-color: #BEBEBE;
+  display : inline-block;
+}
+
 .row{
 margin:2%;
 }
 ifarme{
-overflow: hidden;
-width: 860px;
+width: 80%;
 height: 100%;
-position: absolute;
 
 }
 .container {

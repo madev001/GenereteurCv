@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.cv.entities.Experience;
 import com.cv.entities.Formation;
+import com.cv.entities.Profile;
 import com.cv.entities.Utilisateur;
 import com.cv.repository.UtilisateurRepository;
 @Controller
@@ -45,7 +46,7 @@ public class UtilisateurController {
 	@PostMapping("/save_profile")
     public ModelAndView addProfile(@ModelAttribute MultipartFile image, Utilisateur utilisateur, BindingResult bindingResult) {
         if(bindingResult.hasErrors()){}
-        ModelAndView mav = new ModelAndView("Carriere");
+        ModelAndView mav = new ModelAndView("MonProfile");
         
         String fileName= org.springframework.util.StringUtils.cleanPath(image.getOriginalFilename());
 		if(fileName.contains(".."))
@@ -60,6 +61,7 @@ public class UtilisateurController {
 		
         ur.save(utilisateur);
         mav.addObject("formation",new Formation());
+        mav.addObject("profile",new Profile());
         mav.addObject("utilisateur",utilisateur);
         return mav;
     }

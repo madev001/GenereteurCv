@@ -33,7 +33,7 @@ height:100% !important;
 }
 
 .change_color{
-  color:#FFD700 !important;
+  color:#BEBEBE !important;
 }
 @page{
        
@@ -49,7 +49,7 @@ height:100% !important;
   
   		width: 100% !important; 
   		min-height:15% !important; 
-		background: #FFD700 !important;
+		background: #BEBEBE !important;
 }
 section {
   width: 100% !important;
@@ -129,11 +129,11 @@ aside {
 
   <!-- Les experiences -->			  
 			 				 <div class="card border" style="margin:2%"  th:if="${!experiences.isEmpty()}">  
-									  <div class="card-body" >
+								 <div class="card-body" >
 														            
 									       <h5 class="card-title change_color"> Experience</h5>
 														            
-									    <div class="card-text " th:each="experience : ${experiences}">
+										   <div class="card-text " th:each="experience : ${experiences}">
 										    <div class="exp-info">
 											  <label th:text="${experience.Fonction}"></label> | <label th:text="${experience.Etablissement}"></label><br></br>
 											  <label th:text="${experience.Depuis}"></label> - <label th:text="${experience.Jusqua}"></label>
@@ -142,7 +142,7 @@ aside {
 											 	 <p th:utext="${experience.Description}" style="font-size: 11px;"></p>
 											 </div>	
 										</div>
-									 </div>
+								 </div>
 														        
 							 </div>
 	<!-- les Formations -->													    

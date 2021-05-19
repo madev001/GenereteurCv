@@ -14,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -142,4 +143,6 @@ public class Utilisateur implements Serializable{
     private List<Langue> listLangues = new ArrayList<Langue>();
     @OneToMany(mappedBy = "utilisateur", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Loisire> listLoisires = new ArrayList<Loisire>();
+    @OneToOne( mappedBy = "utilisateur" )
+    private Profile profile;
 }

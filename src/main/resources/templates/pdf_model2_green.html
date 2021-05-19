@@ -99,11 +99,11 @@ aside {
 
 <div id="center-page">
 	<div class="aside">
-		<div class="col-lg-4 col-md-4 col-sm-4 entete"  style="width:30% !important; height:100% !important; display:inline-block">
+		<div class="col-lg-4 col-md-4 col-sm-4 entete" th:if="${!utilisateur.Image.isEmpty()}"  style="width:30% !important; height:100% !important; display:inline-block">
 
 			<img th:src="|data:image/png;base64,${utilisateur.Image}|"  alt="Profile Image" ></img> 
 		</div>
-		<div class="col-lg-8 entete" th:if="${utilisateur != null}" style="width:60% !important; display:inline-block">
+		<div class="col-lg-8 entete" th:if="${!utilisateur.Nom.isEmpty()}" style="width:60% !important; display:inline-block">
 						  <h3  th:text="${utilisateur.prenom}+' '+${utilisateur.nom}" ></h3>
 			
 <!-- Telephone -->
@@ -121,7 +121,9 @@ aside {
 		</div>
 	</div>
 <section>
-	
+	<div class="row profile" style="margin:10px " th:if="${profile !=null}">
+  								<p th:utext="${profile.profile}"></p>
+  	</div>	
 	
 		<div class="parcours" style="display:inline-block; width:70%;"> 
 
@@ -131,11 +133,16 @@ aside {
 														            
 									       <h5 class="card-title change_color"> Experience</h5>
 														            
-										    <p class="card-text " th:each="experience : ${experiences}">
-											  <label th:text="${experience.Fonction}"></label><br></br>
+										   <div class="card-text " th:each="experience : ${experiences}">
+										    <div class="exp-info">
+											  <label th:text="${experience.Fonction}"></label> | <label th:text="${experience.Etablissement}"></label><br></br>
 											  <label th:text="${experience.Depuis}"></label> - <label th:text="${experience.Jusqua}"></label>
-											</p>
-										 </div>
+									        </div>
+									        <div class="langue-desc">
+											 	 <p th:utext="${experience.Description}" style="font-size: 11px;"></p>
+											 </div>	
+										</div>
+								 </div>
 														        
 							 </div>
 	<!-- les Formations -->													    
@@ -201,7 +208,7 @@ aside {
 		</div>
  <!--  -->
  		 <!-- panel loisire -->
-		<div class="card border col-lg-4" style="margin:2%" th:if="${loisires != null}" >
+		<div class="card border col-lg-4" style="margin:2%"  th:if="${!loisires.isEmpty()}">
 			<p class="change_color card-title" style="font-size: 25px;font-weight: bold;" >Loisire </p>
 			<div class="loisire" th:each="loisire : ${loisires}" >
 				

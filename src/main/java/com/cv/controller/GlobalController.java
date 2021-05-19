@@ -51,10 +51,31 @@ public class GlobalController {
 	{
 		return globalService.getAllinfo(id);
 	}
+	
+	@RequestMapping(value = "/pdf_model1_green",method = RequestMethod.GET)
+	public ModelAndView model1_green(@RequestParam("id") Long id)
+	{
+		return globalService.getAllinfo_green(id);
+	}
+	@RequestMapping(value = "/pdf_model1_grey",method = RequestMethod.GET)
+	public ModelAndView model1_grey(@RequestParam("id") Long id)
+	{
+		return globalService.getAllinfo_grey(id);
+	}
 	@RequestMapping(value = "/pdf_model2",method = RequestMethod.GET)
 	public ModelAndView model2(@RequestParam("id") Long id)
 	{
 		return globalService.getAllinfo2(id);
+	}
+	@RequestMapping(value = "/pdf_model2_green",method = RequestMethod.GET)
+	public ModelAndView model2_green(@RequestParam("id") Long id)
+	{
+		return globalService.getAllinfo2_green(id);
+	}
+	@RequestMapping(value = "/pdf_model2_grey",method = RequestMethod.GET)
+	public ModelAndView model2_grey(@RequestParam("id") Long id)
+	{
+		return globalService.getAllinfo2_grey(id);
 	}
 	@RequestMapping(value = "/models",method = RequestMethod.GET)
 	public ModelAndView choisireModel(@RequestParam("id") Long id)
