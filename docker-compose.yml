@@ -4,14 +4,14 @@ version: '3'
 services:
     
     #service 1: database
-    db:
+    db_cv:
       image: mysql:latest
-      hostname: db
-      container_name: db
+      hostname: db_cv
+      container_name: db_cv
       environment:
         MYSQL_DATABASE: 'cv'
-        MYSQL_USER: 'moncv'
-        MYSQL_PASSWORD: 'moncv'
+        MYSQL_USER: 'cv'
+        MYSQL_PASSWORD: 'cv'
         MYSQL_ROOT_PASSWORD: 'root'
         MYSQL_ROOT_HOST: '%'
       ports:
@@ -28,15 +28,15 @@ services:
         context: .                          #docker location
         dockerfile: Dockerfile              
       ports:
-        - "8084:8081"   
+        - "8081:8081"  
       links:
-      - db:db
+      - db_cv:db_cv
       environment: #les varriables d'environement spring
-        SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/cv?useSSL=false
-        SPRING_DATASOURCE_USERNAME: moncv
-        SPRING_DATASOURCE_PASSWORD: moncv                
+        SPRING_DATASOURCE_URL: jdbc:mysql://db_cv:3306/cv        
+        SPRING_DATASOURCE_USERNAME: cv
+        SPRING_DATASOURCE_PASSWORD: cv    
       restart: always
         
       depends_on:                           
-        - db                                #Cette image depend de l'image precedente de la base de données
+        - db_cv                                #Cette image depend de l'image precedente de la base de données
       
