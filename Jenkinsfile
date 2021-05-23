@@ -16,7 +16,7 @@ node{
 
       bat  "${mvnHome}/bin/mvn package"
     }
-     stage('Package'){
+     stage('Run Docker'){
 
       bat  "docker-compose up -d"
     }
