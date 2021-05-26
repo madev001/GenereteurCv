@@ -42,7 +42,7 @@ crossorigin="anonymous">
 												    	<div class="card border border-success" style="margin:10px" th:if="${p != null}" >  
 														        <div class="card-body" >
 														           <div class="col-lg-3 col-md-3 col-sm-3">
-														       	 	<p th:utext="${p.profile}" style="margin:5px; display: inline-block" > </p>
+														       	 	<p th:utext="${p.profile}" id="profile" style="margin:5px; display: inline-block" > </p>
 																	</div>	
 																	
 																	
@@ -57,9 +57,15 @@ crossorigin="anonymous">
 																</svg>
 																Supprimer
 														        </a>
+														         <a class="btn btn-danger btn-sm float-right" th:href="@{/deleteProfile(Profile_id =__${p.id}__, Utilisateur_id =__${utilisateur.id}__)}" > 
+														        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+ 																 <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+																</svg>
+																Modifier
+														        </a>
 														        </div>
 														    </div>
-				<div class="AddForm" style="display:none;">										    
+				<div class="AddForm"  >		th:if="${!p.profile.isEmpty()}"								    
 				    	<div class="row "  >
 				    	<!-- Ajouter des loisires -->
 						    <div class="col-lg-6 col-md-8 col-sm-10 text-center">
@@ -68,9 +74,8 @@ crossorigin="anonymous">
 				    	</div></br>
 				</div>
 				    	<div class="row">
-				  			<a  class="add btn btn-warning col-lg-6 col-md-6 col-sm-4 offset-lg-2" style="margin:10px;">Enregistrer Profile</a>
-				  			<a class="cancel btn btn-danger col-lg-2 col-md-2 col-sm-2" style="display:none;">Annuler</a>
-				  			<button type="submit" class="save btn btn-success pull-right " style="margin:10px; display:none;">
+				  			
+				  			<button type="submit" class="save btn btn-success pull-right " style="margin:10px;" >
 				  			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-save-fill" viewBox="0 0 16 16">
   							<path d="M8.5 1.5A1.5 1.5 0 0 1 10 0h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h6c-.314.418-.5.937-.5 1.5v7.793L4.854 6.646a.5.5 0 1 0-.708.708l3.5 3.5a.5.5 0 0 0 .708 0l3.5-3.5a.5.5 0 0 0-.708-.708L8.5 9.293V1.5z"/>
 							</svg>
@@ -104,7 +109,7 @@ crossorigin="anonymous">
   color: orange;
 }
 </style>
-<script>
+<script type="text/javascript">
 $('.panel-heading').on('click', function() {
     $(this).next('.panel-body').slideToggle("slow");
     
@@ -125,13 +130,21 @@ $( ".cancel" ).click(function() {
 	  $( ".save" ).hide( "slow" );
 	});
 	
-$("#checkJusqua").click(function() {
-    if($(this).is(":checked")) {
-        $("#jusqu").hide(300);
-    } else {
-        $("#jusqu").show(200);
-    }
-});
+/*$(function(){
+	   var hide = true;
+
+	   $('#profile').each(function(){
+	        var td_content = $(this).text();
+
+	        if(td_content.val() == ''){
+	            hide = false;
+	        }
+	   })
+
+	   if(hide= false){
+	      $('.AddForm').hide();
+	   }
+	})*/
 </script>
 
 </html>
