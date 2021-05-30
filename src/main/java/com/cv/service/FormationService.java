@@ -19,7 +19,7 @@ public class FormationService {
 	@Autowired
 	UtilisateurRepository ur;
 	
-	public void ajouterFormation(Formation formation,Utilisateur u)
+	public Formation ajouterFormation(Formation formation,Utilisateur u)
 	{
 		Formation f = new Formation();
 		f.setEtablissement(formation.getEtablissement());
@@ -32,6 +32,7 @@ public class FormationService {
 		f.setLocalite(formation.getLocalite());
 		f.setUtilisateur(u);
 		fr.save(f);
+		return fr.save(f);
 	}
 	
 	public List<Formation> listeFormation(Utilisateur u){

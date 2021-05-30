@@ -1,5 +1,10 @@
 package com.cv.entities;
 
+import javax.validation.constraints.Size;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,9 +24,7 @@ import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
 
 //@Data
 @Entity
@@ -33,12 +36,22 @@ public class Utilisateur implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //@Column(updatable = false, nullable = false)
     private Long id;
-    
+    @NotNull
+    @Size(min = 2, max = 20)
     private String Nom;
+    @NotNull
+    @Size(min = 2, max = 20)
     private String Prenom;
+    @NotNull
+    @Size(min = 5, max = 50)
     private String Email;
+    @NotNull
+    @Size(min = 5, max = 70)
     private String Adresse;
+    @NotNull
+    @Size(min = 2, max = 20)
     private String Ville;
+    @Min(4)
     private int CodePostal;
     private String Tel;
     @DateTimeFormat(pattern = "yyyy-MM-dd")

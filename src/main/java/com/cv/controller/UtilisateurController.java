@@ -45,7 +45,12 @@ public class UtilisateurController {
 	}
 	@PostMapping("/save_profile")
     public ModelAndView addProfile(@ModelAttribute MultipartFile image, Utilisateur utilisateur, BindingResult bindingResult) {
-        if(bindingResult.hasErrors()){}
+        if(bindingResult.hasErrors())
+        {
+        	ModelAndView mav = new ModelAndView("DonneesPersonelles");
+            mav.addObject("utilisateur",new Utilisateur());
+            return mav;
+        }
         ModelAndView mav = new ModelAndView("MonProfile");
         
         String fileName= org.springframework.util.StringUtils.cleanPath(image.getOriginalFilename());
