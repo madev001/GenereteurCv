@@ -80,7 +80,10 @@ span{
 float: right !important;
 margin-right:5px !important;
 }
-
+.langue-desc{
+padding-Bottom:20px;
+/*margin-Bottom:5px;*/
+}
 
 </style>
 
@@ -201,43 +204,7 @@ margin-right:5px !important;
 						 </div>
 				 </div>
 	 </div>
-	<!-- Les competances -->
-		<!--
-					<div class="row" th:if="${competances != null}" >
-					 <div th:each="competance : ${competances}">
-							<div class="col-lg-6 col-md-6 col col-sm-6 " >
-									<div class="card border"  >  
-												    <div class="card-body"  th:if="${competance.Ctype =='téchnique'}">
-																	            
-												       <h5 class="card-title change_color"> Competances théchniques</h5>
-																	            
-													    <p class="card-text ">
-														  <label th:text="${competance.competance}"></label>
-														  <label th:text="${competance.niveau}"></label> 
-														 </p>
-													 </div>
-																	        
-										 </div>
-							</div>
-							
-							<div class="col-lg-6 col-md-6 col col-sm-6 " >
-								<div class="card border"  th:if="${competance.Ctype =='théorique'}" >  
-												    <div class="card-body" >
-																	            
-												       <h5 class="card-title change_color"> Competances théoriques</h5>
-																	            
-													    <p class="card-text "  >
-														  <label th:text="${competance.competance}"></label>
-														  <label th:text="${competance.niveau}"></label> 
-														 </p>
-													 </div>
-																	        
-										 </div>
-								 
-								</div>
-					</div>
-				</div>
-		  -->
+	
 		<!-- <div class="row" th:if="${competances != null}" > -->
 		
 		<!--  -->

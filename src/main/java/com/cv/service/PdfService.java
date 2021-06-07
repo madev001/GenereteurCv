@@ -57,8 +57,6 @@ public class PdfService {
         String html = loadAndFillTemplate(context,model);
         return renderPdf(html);
     }
-
-
     private File renderPdf(String html) throws IOException, DocumentException {
         File file = File.createTempFile("MonCv", ".pdf");
         OutputStream outputStream = new FileOutputStream(file);

@@ -45,12 +45,10 @@ public class UtilisateurController {
 	}
 	@PostMapping("/save_profile")
     public ModelAndView addProfile(@ModelAttribute MultipartFile image, Utilisateur utilisateur, BindingResult bindingResult) {
-        if(bindingResult.hasErrors())
+       /* if(bindingResult.hasErrors())
         {
-        	ModelAndView mav = new ModelAndView("DonneesPersonelles");
-            mav.addObject("utilisateur",new Utilisateur());
-            return mav;
-        }
+        	getProfileForm();
+        	}*/
         ModelAndView mav = new ModelAndView("MonProfile");
         
         String fileName= org.springframework.util.StringUtils.cleanPath(image.getOriginalFilename());
@@ -70,12 +68,5 @@ public class UtilisateurController {
         mav.addObject("utilisateur",utilisateur);
         return mav;
     }
-	/*
-	@PostMapping("/save_profile")
-    public String addProfile(Utilisateur utilisateur, BindingResult bindingResult) {
-        if(bindingResult.hasErrors()){return "DonneesPersonelles";}
-        ur.save(utilisateur);
-        return "redirect:/Carriere";
-    }
-	*/
+
 }

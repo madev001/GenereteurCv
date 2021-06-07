@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.Table;
@@ -34,6 +35,7 @@ public class Formation implements Serializable{
     private String Formation_debut_annee;
     private String Formation_fin_mois;
     private String Formation_fin_annee;
+    @Lob
     private String Description;
     
     //@MapsId("id")
