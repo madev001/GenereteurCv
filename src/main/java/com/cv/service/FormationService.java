@@ -3,6 +3,7 @@ package com.cv.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -18,7 +19,7 @@ public class FormationService {
 	FormationRepository fr;
 	@Autowired
 	UtilisateurRepository ur;
-	
+	@Bean
 	public Formation ajouterFormation(Formation formation,Utilisateur u)
 	{
 		Formation f = new Formation();

@@ -1,4 +1,4 @@
-/*
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -84,7 +84,6 @@ public class FormationServiceTest {
 	{
 		int a=1;
 		int b=2;
-		assertEquals(a,b);
+		assertNotEquals(a,b);
 	}
 }
-*/

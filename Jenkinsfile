@@ -9,6 +9,11 @@ node{
 
       bat  "${mvnHome}/bin/mvn clean"
     }
+        stage('test'){
+      def mvnHome = tool name: 'maven-3.6.3'
+
+      bat  "${mvnHome}/bin/mvn test"
+    }
     
     stage('Package'){
       // Maven home path
