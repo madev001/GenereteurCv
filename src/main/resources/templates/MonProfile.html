@@ -16,6 +16,12 @@ crossorigin="anonymous">
      <script type="text/javascript">
      tinymce.init({
     	  selector: 'textarea#textarea',
+    	  plugins: [
+    		    "advlist autolink lists link image charmap print preview anchor",
+    		    "searchreplace visualblocks code fullscreen",
+    		    "insertdatetime media table contextmenu paste"
+    		  ],
+    		 // toolbar: "bullist numlist"
     	  toolbar1: 'bold italic underline strikethrough forecolor bullist numlist',
     	  menubar:false,
     	content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
@@ -110,6 +116,28 @@ crossorigin="anonymous">
 }
 </style>
 <script type="text/javascript">
+$( document ).ready(function() {
+	//$("textarea").hide();
+});
+/*
+if (!$("#profile").text().length) {
+	$( "#textarea" ).show( "slow" );
+}
+else{$("#textarea").hide();}
+
+if(document.querySelector('#profile:empty')) {
+	$( "#textarea" ).hide( "slow" );
+	}
+//else{$("#textarea").show();}*/
+
+if($("p#profile").val().length === 0)
+{
+	$( "#textarea" ).hide();
+}
+
+
+
+
 $('.panel-heading').on('click', function() {
     $(this).next('.panel-body').slideToggle("slow");
     

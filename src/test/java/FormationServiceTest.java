@@ -5,6 +5,7 @@ import java.util.List;
 
 
 import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.when;
 
 import org.junit.Test;
@@ -24,6 +25,7 @@ import com.cv.CvApplication;
 import com.cv.entities.Formation;
 import com.cv.entities.Utilisateur;
 import com.cv.repository.FormationRepository;
+import com.cv.repository.UtilisateurRepository;
 import com.cv.service.FormationService;
 
 
@@ -40,7 +42,35 @@ public class FormationServiceTest {
 	@InjectMocks
 	@Autowired
 	private FormationService fs;
+	@Autowired
+	private UtilisateurRepository utilisateurRepository;
 	
+	
+	
+	@Test
+	void testAjout() {
+		final Utilisateur utilisateur = new Utilisateur();
+		utilisateur.setNom("test nom");
+		utilisateur.setPrenom("testPrenom");
+		utilisateur.setEmail("test@test.test");
+		utilisateur.setAdresse("adresse aleatoire");
+		utilisateur.setVille("Oujda");
+		utilisateur.setCodePostal(17000);
+		utilisateur.setDateNaissance(null);
+		utilisateur.setImage(null);
+		 utilisateurRepository.save(utilisateur);
+		 
+		final Formation formation = new Formation();
+		formation.setDescription("test test test");
+		formation.setEtablissement("test test test");
+		formation.setFormation_debut_annee("2019");
+		formation.setIntitule("test test test");
+		formation.setLocalite("test test test");
+		formation.setUtilisateur(utilisateur);
+		Formation exepted = fs.ajouterFormation(formation, utilisateur);
+		//Formation exepted = fr.save(formation);
+		assertNotNull(exepted);
+	}
 	 
 	 
 	@Test

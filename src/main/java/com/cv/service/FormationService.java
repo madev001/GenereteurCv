@@ -19,7 +19,6 @@ public class FormationService {
 	FormationRepository fr;
 	@Autowired
 	UtilisateurRepository ur;
-	@Bean
 	public Formation ajouterFormation(Formation formation,Utilisateur u)
 	{
 		Formation f = new Formation();
@@ -36,6 +35,8 @@ public class FormationService {
 		return fr.save(f);
 	}
 	
+	
+
 	public List<Formation> listeFormation(Utilisateur u){
 		List<Formation> l = fr.getAllFormation(u);
 		return l;

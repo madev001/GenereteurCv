@@ -2,12 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
 <head>
     <title>Choisire le model</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+   <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
     <link rel="stylesheet" 
 href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
 integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
 crossorigin="anonymous"> 
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet"> -->
+
 
 </head>
 <body>
@@ -36,13 +40,23 @@ crossorigin="anonymous">
 								 </a>
 								</div>
 						
-						<!--  -->
-						
-				    	</br><a class="btn btn-info" id="cv1_green" th:href="@{/download-pdf(id =__${utilisateur.id}__,model =__'pdf_model1_green'__)}" >Télécharger le Cv en vert</a>
+						<!--  
+						<button type="button" class="btn btn-primary" data-toggle="modal" id="afficher" data-target="#mymodel">Large modal</button>
+						-->
+				    	</br><a class="btn btn-info" id="cv1_green" th:href="@{/download-pdf(id =__${utilisateur.id}__,model =__'pdf_model1_green'__)}"  >Télécharger le Cv en vert</a>
 				    	<a class="btn btn-info" id="cv1" th:href="@{/download-pdf(id =__${utilisateur.id}__,model =__'pdf_model1'__)}">Télécharger le Cv en grenat</a>
 						<a class="btn btn-info" id="cv1_grey" th:href="@{/download-pdf(id =__${utilisateur.id}__,model =__'pdf_model1_grey'__)}">Télécharger le Cv en gris</a>
 						
 				    </div>	
+				    		<!-- Modal 
+					    		<div class="modal fade " id="mymodel" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+								  <div class="modal-dialog modal-lg">
+								    <div class="modal-content">
+								      ...
+								    </div>
+								  </div>
+								</div>
+							-->
 		    <!--  -->
 				    <div class=" col-lg-6 col-md-6 col-sm-10 text-center">
 				    	<iframe th:src="@{/pdf_model2?id=__${utilisateur.id}__}" scrolling="no" name="model2"></iframe>  	
@@ -88,6 +102,13 @@ crossorigin="anonymous">
 
 </body>
 <script type="text/javascript">
+//show modal Does't work : May jquery loaded more then one time !!
+/*$("#afficher").click(function(){
+    $('#mymodal').modal('show');
+});*/
+
+
+	
 $( document ).ready(function() {
 	$("a#cv2_green").hide();
 	$("a#cv2_grey").hide();
@@ -151,6 +172,7 @@ $("a#grey").click(function() {
 iframe
 {
 height:400px;
+position:relative;
 }
 .clr {
     display : inline-block;
