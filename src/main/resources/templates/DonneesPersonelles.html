@@ -17,6 +17,14 @@ crossorigin="anonymous">
 <!--  -->
 
   <div class="container ">
+  		<div class="progress" style="margin-top: 5%;">
+			  <div class="progress-bar" role="progressbar" style="width: 15%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+	  		<path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
+			</svg>
+			
+			  </div>
+		</div>
   	 <form class="multisteps-form__form" th:action="@{/save_profile}" method="post"
                       th:object="${utilisateur}" enctype="multipart/form-data">
   		<div class="multisteps-form">
@@ -25,32 +33,32 @@ crossorigin="anonymous">
 	  		
 	  		<div class="row">
 	  		
-		  		 <div class="col-lg-6 col-md-6 col-sm-6">
+		  		 <div class="col-lg-6 col-md-6 col-sm-12">
 			  		
   				   <input class="form-control" type="text" placeholder="Entrer votre nom" th:field ="*{Nom}"/>
 		  		 
 		  		 </div>
-		  		 <div class="col-lg-6 col-md-6 col-sm-6">
+		  		 <div class="col-lg-6 col-md-6 col-sm-12">
                        <input class="form-control" type="text" placeholder="Entrer votre prénom" th:field ="*{Prenom}"/>
 		  		 
 		  		 </div>
 	  		</div>
 	  		<div class="row">
-		  		 <div class="col-lg-6 col-md-6 col-sm-6">
+		  		 <div class="col-lg-6 col-md-6 col-sm-12">
 			  		 <input class="form-control" type="email" placeholder="Entrer votre mail" th:field="*{Email}"/>
 			  		 
 			  		 </div>
-			  		 <div class="col-lg-6 col-md-6 col-sm-6">
+			  		 <div class="col-lg-6 col-md-6 col-sm-12">
 			  		       <input class="form-control" type="tel" pattern="[0-9]*" placeholder="Entrer votre numéro" th:field="*{Tel}"/>
 			  		 
 			  		 </div>
 	  		</div>
 	  		<div class="row">
-	  		 	<div class="col-lg-6 col-md-6 col-sm-6">
+	  		 	<div class="col-lg-6 col-md-6 col-sm-12">
 		  		    <input class="form-control" type="text" name="" placeholder="Entrer votre adresse" th:field="*{Adresse}"/>
 		  		 
 		  		 </div>
-		  		 <div class="col-lg-6 col-md-6 col-sm-6">
+		  		 <div class="col-lg-6 col-md-6 col-sm-12">
 		  		      <input class="form-control" type="text" pattern="[0-9]*" placeholder="Entrer votre Code Postal" th:field="*{CodePostal}"/>
 		  		 
 		  		 </div>
@@ -63,12 +71,13 @@ crossorigin="anonymous">
 		  	
 	  		</div>
 	  		<div class="row">
-	  		 	<div class="col-lg-6 col-md-6 col-sm-6">
-	  		 	      <input class="form-control" type="file" name="image" th:field="*{image}">
-	  		 	</div>
-	  		 	<div class="col-lg-6 col-md-6 col-sm-6">
+	  		 	
+	  		 	<div class="col-lg-6 col-md-6 col-sm-12">
                       <input class="form-control" type="date" placeholder="Entrer votre age" th:field="*{DateNaissance}"/>
 	  		 	</div>	
+	  		 	<div class="col-lg-6 col-md-6 col-sm-12">
+	  		 	      <input class="form-control" type="file" name="image" th:field="*{image}">
+	  		 	</div>
 	  		</div>
 	  		<div class="row text-center">
 	  			   <button type="submit" class="btn btn-primary">Etape suivante</button>

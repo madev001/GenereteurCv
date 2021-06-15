@@ -59,7 +59,9 @@ crossorigin="anonymous">
 							-->
 		    <!--  -->
 				    <div class=" col-lg-6 col-md-6 col-sm-10 text-center">
+				    	<div class="box_scale">
 				    	<iframe th:src="@{/pdf_model2?id=__${utilisateur.id}__}" scrolling="no" name="model2"></iframe>  	
+						</div>
 <!-- 				    	<a class="btn btn-info" th:href="@{/download-pdf(id =__${utilisateur.id}__,model =__'pdf_model2'__)}">Télécharger ce Cv</a>
 
  -->					
@@ -169,11 +171,6 @@ $("a#grey").click(function() {
 </script>
 <style>
 
-iframe
-{
-height:400px;
-position:relative;
-}
 .clr {
     display : inline-block;
     align-items : center;
@@ -210,11 +207,11 @@ position:relative;
 .row{
 margin:2%;
 }
-ifarme{
+/*ifarme{
 width: 80%;
 height: 100%;
 
-}
+}*/
 .container {
 
     height: 100%;
