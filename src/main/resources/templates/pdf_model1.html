@@ -173,7 +173,7 @@ padding-Bottom:20px;
 										   <div class="card-text " th:each="experience : ${experiences}">
 										    <div class="exp-info">
 											  <label th:text="${experience.Fonction}"></label> | <label th:text="${experience.Etablissement}"></label><br></br>
-											  <label th:text="${experience.Depuis}"></label> - <label th:text="${experience.Jusqua}"></label>
+											  <label th:text="${experience.Depuis}"></label> - <label th:text="${experience.Jusqua}"></label> | <label th:text="${experience.Localite}"></label>
 									        </div>
 									        <div class="langue-desc">
 											 	 <p th:utext="${experience.Description}" style="font-size: 11px;"></p>
@@ -195,7 +195,7 @@ padding-Bottom:20px;
 								 	  <br></br>
 								 	 <label th:text="${formation.Formation_debut_mois} " style="font-size: 12px;"></label>-
 								 	 <label th:text="${formation.Formation_fin_mois}" style="font-size: 12px;"></label> 
-								 	  <br></br>
+								 	   | <label th:text="${formation.Localite}"></label>
 								 </div>
 								 <div class="langue-desc">
 								 	 <p th:utext="${formation.Description}" style="font-size: 11px;"></p>

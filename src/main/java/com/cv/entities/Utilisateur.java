@@ -1,10 +1,5 @@
 package com.cv.entities;
 
-import javax.validation.constraints.Size;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -24,11 +19,13 @@ import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 //@Data
 @Entity
-@Table(name = "Utilisateurs")
+@Table(name = "Utilisateur")
 public class Utilisateur implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -36,29 +33,18 @@ public class Utilisateur implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //@Column(updatable = false, nullable = false)
     private Long id;
-    @NotNull
-    @Size(min = 2, max = 20)
-    private String Nom;
-    @NotNull
-    @Size(min = 2, max = 20)
-    private String Prenom;
-    @NotNull
-    @Size(min = 5, max = 50)
-    private String Email;
-    @NotNull
-    @Size(min = 5, max = 70)
-    private String Adresse;
-    @NotNull
-    @Size(min = 2, max = 20)
-    private String Ville;
-    @Min(4)
-    private int CodePostal;
-    private String Tel;
+    
+    private String nom;
+    private String prenom;
+    private String email;
+    private String adresse;
+    private String ville;
+    private int codePostal;
+    private String tel;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date DateNaissance;
-    @Lob
+    private Date dateNaissance;
 	@Column(columnDefinition = "LONGBLOB")
-	private String Image;
+	private String image;
     //private byte[] Image;
     
     public Long getId() {
@@ -68,59 +54,59 @@ public class Utilisateur implements Serializable{
 		this.id = id;
 	}
 	public String getNom() {
-		return Nom;
+		return nom;
 	}
 	public void setNom(String nom) {
-		Nom = nom;
+		this.nom = nom;
 	}
 	public String getPrenom() {
-		return Prenom;
+		return prenom;
 	}
 	public void setPrenom(String prenom) {
-		Prenom = prenom;
+		this.prenom = prenom;
 	}
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
 	public String getAdresse() {
-		return Adresse;
+		return adresse;
 	}
 	public void setAdresse(String adresse) {
-		Adresse = adresse;
+		this.adresse = adresse;
 	}
 	public String getVille() {
-		return Ville;
+		return ville;
 	}
 	public void setVille(String ville) {
-		Ville = ville;
+		this.ville = ville;
 	}
 	public int getCodePostal() {
-		return CodePostal;
+		return codePostal;
 	}
 	public void setCodePostal(int codePostal) {
-		CodePostal = codePostal;
+		this.codePostal = codePostal;
 	}
 	public String getTel() {
-		return Tel;
+		return tel;
 	}
 	public void setTel(String tel) {
-		Tel = tel;
+		this.tel = tel;
 	}
 	public Date getDateNaissance() {
-		return DateNaissance;
+		return dateNaissance;
 	}
 	public void setDateNaissance(Date dateNaissance) {
-		DateNaissance = dateNaissance;
+		this.dateNaissance = dateNaissance;
 	}
 	
 	public String getImage() {
-		return Image;
+		return image;
 	}
 	public void setImage(String image) {
-		Image = image;
+		this.image = image;
 	}
 	public List<Formation> getListFormations() {
 		return listFormations;

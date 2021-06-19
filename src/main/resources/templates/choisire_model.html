@@ -22,10 +22,12 @@ crossorigin="anonymous">
 		    <div class="row">
 				
 		    			<div class="col-lg-6 col-md-6 col-sm-10 text-center">
-				    	<iframe th:src="@{/pdf_model1?id=__${utilisateur.id}__}" scrolling="no" name="model1"></iframe>  
-
+		    				<div class="box_scale">
+				    			<iframe th:src="@{/pdf_model1?id=__${utilisateur.id}__}"  scrolling="no" name="model1"></iframe>  
+							</div>
 						<!--  -->
-								</br>	<div class="clr">
+								</br>	
+								<div class="clr">
 								  <a th:href="@{/pdf_model1_green?id=__${utilisateur.id}__}" id="green" target="model1"><div class='box green'></div>
 								  </a>
 								</div>
@@ -170,6 +172,23 @@ $("a#grey").click(function() {
 });
 </script>
 <style>
+.box_scale {
+              width:300px;
+             height:350px;
+  -webkit-transform: scale(0.5);  /* Saf3.1+, Chrome */
+     -moz-transform: scale(0.5);  /* FF3.5+ */
+      -ms-transform: scale(0.5);  /* IE9 */
+       -o-transform: scale(0.5);  /* Opera 10.5+ */
+          transform: scale(0.5);
+             filter: progid:DXImageTransform.Microsoft.Matrix(/* IE6–IE9 */
+                     M11=0.9999619230641713, M12=-0.008726535498373935, M21=0.008726535498373935, M22=0.9999619230641713,SizingMethod='auto expand');
+}
+iframe{
+width:700px;
+height:500px;
+margin:3%;
+}
+
 
 .clr {
     display : inline-block;
