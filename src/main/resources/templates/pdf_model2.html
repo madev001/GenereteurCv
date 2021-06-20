@@ -19,7 +19,6 @@ img {
   width:100% !important;
   height:100% !important;
 
-
 }
 .langue-desc{
 padding-Bottom:20px;
@@ -48,7 +47,7 @@ height:100% !important;
     width: 100% !important;
      }
 .aside {
-  
+  		display:inline-block;
   		width: 100% !important; 
   		min-height:15% !important; 
 		background: #FFD700 !important;
@@ -105,7 +104,7 @@ aside {
 
 			<img th:src="|data:image/png;base64,${utilisateur.Image}|"  alt="Profile Image" ></img> 
 		</div>
-		<div class="col-lg-8 entete" th:if="${!utilisateur.Nom.isEmpty()}" style="width:60% !important; display:inline-block">
+		<div class="col-lg-8 col-md-8 col-sm-8 entete" th:if="${!utilisateur.Nom.isEmpty()}" style="width:60% !important; display:inline-block">
 						  <h3  th:text="${utilisateur.prenom}+' '+${utilisateur.nom}" ></h3>
 			
 <!-- Telephone -->
