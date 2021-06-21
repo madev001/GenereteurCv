@@ -24,8 +24,18 @@ crossorigin="anonymous">
     	content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
     	});
  </script>
+ <script type="text/javascript" async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1IIrJ3zn3nOC-m8kk3rprKMDU59jki40&libraries=places&callback=initMap">
+</script>
 </head>
 <body>
+<script type="text/javascript">
+function initMap()
+{
+	var input = document.getElementById('ville');
+	var autocomplete = new google.maps.places.Autocomplete(input);
+	}
+</script>
     <div class="container">
    								 
 				<div class="progress" style="margin-top: 5%;">
@@ -75,7 +85,7 @@ crossorigin="anonymous">
 						    <input type="text" class="form-control" placeholder="Formation scolaire" th:field ="*{Intitule}">
 						    </div>
 						    <div class="col-lg-6 col-md-6 col-sm-12" style="margin-top:1%">
-						    <input type="text" class="form-control" placeholder="Localité" th:field ="*{Localite}">
+						    <input type="text" class="form-control" id="ville" placeholder="Localité" th:field ="*{Localite}">
 						    </div>
 				    	</div></br>
 				    	<div class="row ">
@@ -144,6 +154,7 @@ crossorigin="anonymous">
 }
 </style>
 <script>
+
 $('.panel-heading').on('click', function() {
     $(this).next('.panel-body').slideToggle("slow");
     

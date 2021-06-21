@@ -111,12 +111,16 @@ margin-right:5px !important;
 				<label class="dp" th:text="${utilisateur.DateNaissance}"></label><br></br>
 		</div>
 
-		<!-- Competances -->
-		<div th:if="${!competances.isEmpty()}">
+	<!-- Competances -->
+		<div  th:if="${!competances.isEmpty()}">
 		<p class="text-center" style="font-size: 170%;font-weight: bold;"> Compétances</p>
-					 <div class="competance"  th:each="competance : ${competances}" >
+				
+					 <div class="row competance"  th:each="competance : ${competances}" >
 					
+					<div class="col-lg-9">
 					<label  th:text="${competance.competance}"></label>
+					</div>
+					<div class="col-ld-3" style="margin-right:5% !important">
 			 <!-- 3 stars -->
 					<span th:if="${competance.niveau ==3}"> Senior</span>
 		     <!-- 4 stars -->
@@ -125,6 +129,7 @@ margin-right:5px !important;
 					<span th:if="${competance.niveau ==1}"> Junior</span>
 														  
 					 </div>
+				</div>
 		</div>
 		 <!-- panel langue -->
 		<div th:if="${!langues.isEmpty()}">

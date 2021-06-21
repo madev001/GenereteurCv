@@ -30,8 +30,22 @@
 		<scope>provided</scope>
 	</dependency>
 	-->
+			<!-- https://mvnrepository.com/artifact/com.googlecode.places-api-client/places-api-client -->
+			<dependency>
+			    <groupId>com.googlecode.places-api-client</groupId>
+			    <artifactId>places-api-client</artifactId>
+			    <version>1.0.0</version>
+			</dependency>
+						
 
-
+			<!-- https://mvnrepository.com/artifact/com.google.maps/google-maps-services -->
+			<dependency>
+			    <groupId>com.google.maps</groupId>
+			    <artifactId>google-maps-services</artifactId>
+			    <version>0.18.1</version>
+			</dependency>
+		
+						
 	
 	  <dependency>
       <groupId>io.rest-assured</groupId>
