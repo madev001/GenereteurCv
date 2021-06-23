@@ -7,9 +7,20 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
 crossorigin="anonymous"> 
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+<script type="text/javascript" async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1IIrJ3zn3nOC-m8kk3rprKMDU59jki40&libraries=places&callback=initMap">
+</script>
 </head>
 <body>
+<script type="text/javascript">
+function initMap()
+{
+	var input = document.getElementById('adresse');
+	var autocomplete = new google.maps.places.Autocomplete(input);
+	}
+</script>
 <!--  -->
 
 
@@ -49,27 +60,28 @@ crossorigin="anonymous">
 			  		 
 			  		 </div>
 			  		 <div class="col-lg-6 col-md-6 col-sm-12">
-			  		       <input class="form-control" type="tel" pattern="[0-9]*" placeholder="Entrer votre numéro" th:field="*{Tel}"/>
+			  		       <input class="form-control" type="tel" pattern="[0-9]*" placeholder="Entrer votre numéro de telephone" th:field="*{Tel}"/>
 			  		 
 			  		 </div>
 	  		</div>
 	  		<div class="row">
-	  		 	<div class="col-lg-6 col-md-6 col-sm-12">
-		  		    <input class="form-control" type="text" name="" placeholder="Entrer votre adresse" th:field="*{Adresse}"/>
+	  		 	<div class="col-lg-12 col-md-12 col-sm-12">
+		  		    <input class="form-control" type="text" id="adresse" placeholder="Entrer votre adresse" th:field="*{Adresse}"/>
 		  		 
 		  		 </div>
-		  		 <div class="col-lg-6 col-md-6 col-sm-12">
+		  		 <!--  <div class="col-lg-6 col-md-6 col-sm-12">
 		  		      <input class="form-control" type="text" pattern="[0-9]*" placeholder="Entrer votre Code Postal" th:field="*{CodePostal}"/>
 		  		 
-		  		 </div>
+		  		 </div>-->
 	  		</div>
-	  		<div class="row">
+	  		<!--<div class="row">
 	  		 	<div class="col-lg-12 col-md-12 col-sm-12">
 		  		    <input class="form-control" type="text" name="" placeholder="Entrer votre Ville" th:field="*{Ville}"/>
 		  		 
 		  		 </div>
 		  	
-	  		</div>
+	  		</div>-->
+	  		<label>Date de naissance :</label>
 	  		<div class="row">
 	  		 	
 	  		 	<div class="col-lg-6 col-md-6 col-sm-12">
@@ -109,7 +121,7 @@ margin:2%;
 
 .multisteps-form{
 background-color:#fff;
-margin:15%
+margin:10%
 }
 
 

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Choisire le model</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
@@ -21,7 +22,7 @@ crossorigin="anonymous">
 		
 		    <div class="row">
 				
-		    			<div class="col-lg-6 col-md-6 col-sm-10 text-center">
+		    			<div class="col-lg-6 col-md-6 col-sm-12 text-center">
 		    				<div class="box_scale">
 				    			<iframe th:src="@{/pdf_model1?id=__${utilisateur.id}__}"  scrolling="no" name="model1"></iframe>  
 							</div>
@@ -60,7 +61,7 @@ crossorigin="anonymous">
 								</div>
 							-->
 		    <!--  -->
-				    <div class=" col-lg-6 col-md-6 col-sm-10 text-center">
+				    <div class=" col-lg-6 col-md-6 col-sm-12 text-center">
 				    	<div class="box_scale">
 				    	<iframe th:src="@{/pdf_model2?id=__${utilisateur.id}__}" scrolling="no" name="model2"></iframe>  	
 						</div>
@@ -173,8 +174,9 @@ $("a#grey").click(function() {
 </script>
 <style>
 .box_scale {
-              width:300px;
-             height:350px;
+              width:100px;
+             height:400px;
+             
   -webkit-transform: scale(0.5);  /* Saf3.1+, Chrome */
      -moz-transform: scale(0.5);  /* FF3.5+ */
       -ms-transform: scale(0.5);  /* IE9 */
@@ -184,7 +186,7 @@ $("a#grey").click(function() {
                      M11=0.9999619230641713, M12=-0.008726535498373935, M21=0.008726535498373935, M22=0.9999619230641713,SizingMethod='auto expand');
 }
 iframe{
-width:700px;
+width:600px;
 height:500px;
 margin:3%;
 }
@@ -224,13 +226,10 @@ margin:3%;
 }
 
 .row{
-margin:2%;
-}
-/*ifarme{
-width: 80%;
-height: 100%;
+margin-bottom:2%;
 
-}*/
+}
+
 .container {
 
     height: 100%;

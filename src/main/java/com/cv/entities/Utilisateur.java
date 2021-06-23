@@ -25,7 +25,7 @@ import lombok.NoArgsConstructor;
 
 //@Data
 @Entity
-@Table(name = "Utilisateur")
+@Table(name = "Utilisateurs")
 public class Utilisateur implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -142,6 +142,6 @@ public class Utilisateur implements Serializable{
     private List<Langue> listLangues = new ArrayList<Langue>();
     @OneToMany(mappedBy = "utilisateur", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Loisire> listLoisires = new ArrayList<Loisire>();
-    @OneToOne( mappedBy = "utilisateur" )
+    @OneToOne( mappedBy = "utilisateur", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Profile profile;
 }
