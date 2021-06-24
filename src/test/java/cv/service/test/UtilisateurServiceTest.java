@@ -1,6 +1,7 @@
 package cv.service.test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -28,17 +29,23 @@ import com.cv.service.FormationService;
 class UtilisateurServiceTest {
 
 	@Before
-	void init() throws Exception {
-		MockitoAnnotations.initMocks(this);
+	public void init() throws Exception {
+		//MockitoAnnotations.initMocks(this);
+		FormationService fs = mock(FormationService.class);
+		final Formation formation = new Formation();
+		formation.setIntitule("qualite logiciel");
+		when(fs.ajouterFormation(formation, null)).thenReturn(formation);
+		Formation created = new Formation();
+		created.setIntitule(formation.getIntitule());
 	}
-	@Autowired
+	/*@Autowired
 	@Mock
     FormationRepository fr;
 	@Mock
 	UtilisateurRepository ur;
 	@InjectMocks
     FormationService fs;
-     
+     */
     
     
 	@Test
@@ -52,12 +59,12 @@ class UtilisateurServiceTest {
 		Utilisateur saved = repo.save(utilisateur);
 		assertEquals(1, repo.findAll().size());
 		*/
-		Formation formation = new Formation();
-		formation.setIntitule("qualite logiciel");
+		
 		//when(fr.save(ArgumentMatchers.any(Formation.class))).thenReturn(formation);
-		//Formation created = fs.ajouterFormation(formation, null); // error when execute this
+		//Formation created = fr.save(formation); //fs.ajouterFormation(formation, null); // error when execute this
 		//Assert.assertThat(created.getIntitule()).isSameAs(formation.getIntitule());
 		//assertEquals(created.getIntitule(), formation.getIntitule());
+		
 		//assertEquals("qualite logiciel", formation.getIntitule());
 		//verify(fr).save(formation);
 	}
