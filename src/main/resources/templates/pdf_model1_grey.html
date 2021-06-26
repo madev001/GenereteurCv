@@ -3,7 +3,7 @@
 <head>
  <meta charset = "utf-8"></meta>
 <meta charset="ISO-8859-1"></meta>
-<title>model 1</title>
+<title>model 1 gris</title>
 <link rel="stylesheet" 
 href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
 integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
@@ -15,7 +15,7 @@ crossorigin="anonymous"> </link>
 
 <style  type="text/css" media="all">
 
-img {
+img#pdp {
   width:80% !important;
   height:50% !important;
   margin-top:20px  !important;
@@ -25,16 +25,13 @@ img {
 width:10% !important;
 height:5% !important;
 }
-.langue-desc{
-padding-Bottom:20px;
-}
-
 body,html{
 height:100% !important;
 }
 
 .change_color{
   color:#BEBEBE !important;
+  font-family: Georgia, serif;
 }
 @page{
        
@@ -78,6 +75,7 @@ margin-right:10px !important;
 .dp{
 font-size: 100% !important;
 margin-left:10px !important;
+font-family: Georgia, serif;
 }
 .langue,.competance{
 margin-left:10px !important;
@@ -86,8 +84,13 @@ span{
 float: right !important;
 margin-right:5px !important;
 }
-
-
+.langue-desc{
+padding-Bottom:20px;
+}
+.logo_cll{
+width:8%;
+heigth:5%;
+}
 </style>
 
 </head>
@@ -96,7 +99,7 @@ margin-right:5px !important;
 <div id="center-page">
 	<div class="aside">
 		<div class="text-center" th:if="${!utilisateur.Image.isEmpty()}">
-			<img th:src="|data:image/png;base64,${utilisateur.Image}|"  alt="Profile Image" ></img> 
+			<img id="pdp" th:src="|data:image/png;base64,${utilisateur.Image}|"  alt="Profile Image" ></img> 
 		</div>
 		<div th:if="${!utilisateur.Nom.isEmpty()}">
 		
@@ -113,14 +116,17 @@ margin-right:5px !important;
  <!-- Adresse email -->
 				<img class="logo_contact" th:if="${!utilisateur.Email.isEmpty()}" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABmJLR0QA/wD/AP+gvaeTAAAETElEQVR4nO2aT4gURxTGf6txg65egrsxMkMUJYKXhUBAwghr8BAPElgkueXkUQjxYv6wYrIhm2Ny9JhcAiKCWWIO3nTFQ4grKijehNWQENHdGIiJ63p4r9I1PdV/qnu6etz0B8VMVb2q972vq19V9ww0aNCgQX+xAZgCbgH/ACsByl3gK2A4QHypGAOuECZoV5mpPsRkjAHXlcgti1QIdIhWQi0YBa4piZvAFsIKQA3+/oMr+DoI1SJAUvB1EAouQFrwdRAK6i8r+OCEQvrbQLTVXUeyf62EQvubItrqkoLfqzYLIQgpgglw03KWVb4MQUgRTIA8x9sFJPiQR9NgApRxNAZMA/PAI2uuR0hemUYSbGheQRwdApbIXj2LwGRAXkEcHQKe6rgfgAlgxOofAfYBs2qzjL8IAyvAGNGV/ziH/adq+xC/22FgBZgmuvIGbeA0IswScAbYZfWblfBZhbwKw9fRVbWf0HobuE/vvX8faKnNW9p2pUJehbC/gCOz/Ddq/bTWf0QCbgHntO2U2mzS+pKHH8Nrv8eY3Ggh5OwrlhdxeyNIy2prE+0ASePy+jFCttLN82EYOEa0Z9t7ty+xpLqvXZYfm+sxShzGJoAb1sSzwKsliCXVfe2y/GwFvrPqt4G3PebJnGDQBTBIuoCJGAKOkr2EnhcBwH0Lf4jE2oNPrEnSkkiVSbDfAhjEk/hHLqN72vluCUcuxLfBM1o/hwTeBn6y5u1Q7H1CHl7vqY3z9bmZwLk8PB3ZmFf7fVrfhfsgtOxo83mfkIfXUJqd6ThC94NKHBeBCx7EPidKQgZmSS5q+R7YBnyBiFPkfUIWrxEktkwBVpTEDLIjlMUoEuQK8qATGluRWOKrrgem45L1/THwLTBeksQk0RKfRc76G1NHlMc4wv0x7th6YHfsQZboE6v9PHCA7ByRhEnkETd+n7vKXEEfQ8rxvDXXEySWPWqTSwCD7cDXdL/JuQEcBl4sQHAz8oj7C/AnyQL45BiUy2G6Dz5Lyn17zNZLAINNwAfAHcvuN+Q3+Vc8yfYTm5GDzoLF61fgBPBSwphCAhisBQ4Cly37v5Gj824/7qWwA/gG+MviMQ+8D6zLGFtKABsduvPEU+TeO+gxhy/SfObNTX0TwGAnxa9GHqyhv6uu7wIYjOJ/P6bBlXd+R/JOmfNJZQIYDCNX3/xdZgXJ+CeB13KM34YE+cAafxsRY30f+FUugI0OcvAxvwksa/1Nh+3ryLL+1+Iyh9/9nQdBBTBIOpVNAcep5vSZhFoEMHgZyQl/WP5MWUSSabtiDl1xDsU64m1VYQR4B3hD6z8DZ5GdpGokxhliBQwCuuJcUyORgUAjQN0E6kaaAJfofS5fLW1OxJOgKymuhrYmCdp4IaVvjl41V0ubE8054P+IRgDr+z397NRBJBD26qfzt8EZkl9Tr7bi/M1xWEW4OwAEqyp1/Ie5QYMGA4xn4EMNWC/yYdsAAAAASUVORK5CYII=" />
 				<label class="dp" th:text="${utilisateur.Email}"></label><br></br> 
- <!-- Date naissance -->
-				<img class="logo_contact" th:if="${!utilisateur.DateNaissance.isEmpty()}" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABz0lEQVRoge2YP0/CQBiHH4wkJH4CRo0Lo9+CRWf9UCwk+iV000nd+AourBAxuDAoiRgiDr6UK7T2jr53tKRP8ob2uP7ufve/BXvawBBYSAwkTQvf+hEDoxCzsLLoRyzF0+53qn+gWJGdYhq5AsZsdm9Wy6Tldw1X/TFwmfTAu2OBWgby6I//c57VMrb5XXHVj/2/l3Mki6H8mi0xTMm7DWr6WV3ZJr7W+9gQXfRT66s95n1TzZFCc5iQVqbhFbHXPVILXovtiI2cvemREEZaEsHwsY80gBeJhrJ20A2xY+h2lLWDGTkD5sC3xFzStAhm5EH0roEbub5X1A9m5FP0joETuf5Q1I/VN2kf0WICHAGnrPamicfyIrR7pGtoLqOrqB9saPXZNNJX1A9m5GdNbyFpWgR7H0k6s3k7x1VnraJRGeHvRPsIzLD7Yrh+b8ZMtFROyS6rVguYplQqT0wdzKgsv8+S9xZoWj7zH03gTjSfLJ/JbaTGajhpmFjSFM0v7Jbp3EbqRt66XR2tcNWtPtAVmspIkbGZ7D2y9wKt6LnUt8g9svUrhfb7iG9K0yNOVEaKhvk56I3VeacsvCYlXgAjwi2veWMEnCs0RoUXfgG2J2Xq6lI3igAAAABJRU5ErkJggg==" />
-				<label class="dp" th:text="${utilisateur.DateNaissance}"></label><br></br>
+ <!-- Date naissance-->	
+			 	<img class="logo_contact" th:if="${utilisateur.DateNaissance != null}" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABz0lEQVRoge2YP0/CQBiHH4wkJH4CRo0Lo9+CRWf9UCwk+iV000nd+AourBAxuDAoiRgiDr6UK7T2jr53tKRP8ob2uP7ufve/BXvawBBYSAwkTQvf+hEDoxCzsLLoRyzF0+53qn+gWJGdYhq5AsZsdm9Wy6Tldw1X/TFwmfTAu2OBWgby6I//c57VMrb5XXHVj/2/l3Mki6H8mi0xTMm7DWr6WV3ZJr7W+9gQXfRT66s95n1TzZFCc5iQVqbhFbHXPVILXovtiI2cvemREEZaEsHwsY80gBeJhrJ20A2xY+h2lLWDGTkD5sC3xFzStAhm5EH0roEbub5X1A9m5FP0joETuf5Q1I/VN2kf0WICHAGnrPamicfyIrR7pGtoLqOrqB9saPXZNNJX1A9m5GdNbyFpWgR7H0k6s3k7x1VnraJRGeHvRPsIzLD7Yrh+b8ZMtFROyS6rVguYplQqT0wdzKgsv8+S9xZoWj7zH03gTjSfLJ/JbaTGajhpmFjSFM0v7Jbp3EbqRt66XR2tcNWtPtAVmspIkbGZ7D2y9wKt6LnUt8g9svUrhfb7iG9K0yNOVEaKhvk56I3VeacsvCYlXgAjwi2veWMEnCs0RoUXfgG2J2Xq6lI3igAAAABJRU5ErkJggg==" />
+			<label class="dp" th:text="${utilisateur.DateNaissance}"></label><br></br>
 		</div>
 
-	<!-- Competances -->
+
+		<!-- Competances -->
 		<div  th:if="${!competances.isEmpty()}">
-		<p class="text-center" style="font-size: 170%;font-weight: bold;"> Compétances</p>
+		<p class="text-center" style="font-size: 170%;font-weight: bold; font-family: Georgia, serif;">
+		<img class="logo_cll" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAABmJLR0QA/wD/AP+gvaeTAAADtElEQVRoge2aS0hVQRjHf5ZpZpoaRSQuih5EtIiK8lEUtKggFSShtkEPIhfhJnDRskUFtWpXpm2KIK1FLapNSki1CASVpFCiFmVSFpbhbTHn5rnn3pk5jzmPS/7hD5d7v29mfvfMnTPznQvuVQdMWq71kJe36gZSlrtiHotRLbK9LgSagB7mYNPuBZqtmFy5eaF2YBroBNqAEbJBnR6xYjut3PbIR+1BBbbXRcA3oDhgm7+AMmDG9t4CoA/YCFQAE8BnYAh4AzwB+h05kagT/RXVuVPS9mlN3gRwFdhgHkuuNs2g3PispO2lwA8X+X+AG8Aq03BOFeLuN6vzMJkLmV13PbQzARw1i5ipZkXnY0AL4rdZZsUOKeIbJX2cUeTIfBmxBhhXr6TDMaAqR3yl9VmunB5JH7WSeJ1vAgsD8v1TPXBb0VmLIveIIq8bsTuza7UiXudrgShtmtR0VKbILdfkTjriSzTxOh8PAppWEOBlmlwncLEmXucpYH0AVkBMuy5FJ82K3FZFXhfZU3qlBziZHwdgzVCu/XIKsRpX5ohfDoxLcu5L+tgliffqQ0FA02pSdDCGWKDKLbcqYFPIb0snDQE/NwEcxcbjjiHgFLDDBHSYW8tS4LtBYF+3KecOZpufRhzaLnn/GGI/bUotZJ72PKsIcZ4N+s1Pk10IKAJGDbTt9BavkPYr/BvoQJxn7QUAndIFgFtWbgfZ59pzwFqvg3OhehONOEs8jeS+ZfVYn+lKPHWYmTm5fD0gq1J+ing1wEfCgU0BT4NjyVWLtzJtDaJ8ExZsCnhrhMyAagn3yqY9i1j9Y1MRcJ7wfrO5/BNDm5ASD7GlwAnCufW48Qeg2s1AVTfuYeA98BAYAN4xd9yrANYAW4F9iM28yU2FH70GdiOuuC8NEM/VCuJ7aOpfqjrRfmCz7ltJmDYhgJ/JAlTA6xDQ+aY9iDP8oNfEvcQ/Rf16XAalmu99ZNek8l4q4BnECp1v+gSc8pvcQPzT040nEae1wxh4Rv0qAUAqNwOLg0LadSABUCqHokcJAIsUuBrx+DJuuMiAQdSiZxMAGBkwwIUEAEYKXABcSQBkZMBpXYoQKBHABWQW9eLy17BB7aoCvoQA4cUPQqd06KKhgfvxFKLiEqni2mu/AHZGwJelFT4G69ejiH/qNURCJlEB4UIOIu79iSo1hQHaT0xT1o1Mw74ElkRK4FGmgQ+GOdhAT9AtpQy0YVclIdbSkghsYkxShfIv1STrvwOe17zmld/6CxIVRX0ZG9WqAAAAAElFTkSuQmCC" />
+		 Compétences</p>
 				
 					 <div class="row competance"  th:each="competance : ${competances}" >
 					
@@ -140,7 +146,9 @@ margin-right:5px !important;
 		</div>
 		 <!-- panel langue -->
 		<div th:if="${!langues.isEmpty()}">
-			<p class="text-center" style="font-size: 170%;font-weight: bold;" >Langues </p>
+			<p class="text-center" style="font-size: 170%;font-weight: bold; font-family: Georgia, serif;" >
+			<img class="logo_cll" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAABV0lEQVRIie2Wv07DMBDGf0EgRIsYEWIlEywMCCRAMAASFWJl7Up5F16hI2KEZ0BsiAleoOnOAgOCkg6+RCaKnb/21E86xfGd/fk7++LADDN4wgUwBuKWLQJ6NuLIAWliI50oyBDHJbLSBCnfXEHgH3AEHEvbGbLpedB8jzn+qlaa+ETznfoifkftybJYIH1Fk+8Dh02Ir6XvBhhIe1BBVS3iD6CrqUzUd8WXp9IEXX0K06keAl8SvCUWS98wJz5blmV9KZKVhZaYkOJ030vsGYZUmxSvotI30QZNUDW9ZhhzAGyjtuVW+q4sAv6hSansyhwL8gyBbyoqroM7YB34kfcN4Lfs4Lpq9VM9DyxJew/HigNgBbgEXoEXYAdYtA3QYS3yFmC8ncYOSSObs4ebn4ERcF5ntdmJ3lCfT+fQST+BTR+kWeK+L1KdOO+CcIon4Bno+CZuHVPA7vi21fV5tQAAAABJRU5ErkJggg==" />
+			Langues </p>
 			<div class="langue" th:each="langue : ${langues}" >
 				
 					<label th:text="${langue.Langue}"  > </label>
@@ -161,7 +169,9 @@ margin-right:5px !important;
  <!--  -->
  <!-- panel loisire -->
 		<div  th:if="${!loisires.isEmpty()}" >
-			<p class="text-center" style="font-size: 170%;font-weight: bold;" >Loisire </p>
+			<p class="text-center" style="font-size: 170%;font-weight: bold; font-family: Georgia, serif;" >
+			<img class="logo_cll" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAACHklEQVRIidXW32tPcRzH8cfSMpNfKVyZhlZq5YaU5ZLdmOJm5Q+wJVy4cMGNC1JKKXdEo0VR7mhfK8uvWZufd4q4WExStvkRYi4+n9P3OG1zvvb9fuNVnzrn/fm8z/Pz/rzP+30O/4iWYm01QLMy96vQgy8YrMYG0loeod2orza8DmfxCI3VhsNejKANG7ELp9CH9xjGGezAgkn8G9CLj7ghnGZutUTHiT+M77iMppRvb2ZNoRQwHEU/zmE/NmMlDmEs8/B3WBP9xjNzY6WCs2rEATwwefRPMVs43hlFnKgBN6eAZceRuL4gRN6jxByn1ZcTmuS8bBXxLQfwZeq6s1zgqWDDOCh0vlo8i/ZLlQZ/xe7Uum3R/rpUwF3hzWyeBpw+0n48RhfmZNZOq1sYSoEGotNndERbXQbchOfx+gc24AIeYkVe8L0MqF5ohYnzFVzLREj4hCa2E9G2B2/ygicDLUQ7PmQivYp50a81ZW9LPa8lLzhRO0ajwytswvV4/xOHUZNa3x3nhjJ2uC2kMLcaFXOcjHFsj/OLcQyr8SnOby0FMJ1qcVyIMsnpsmgfUiyhqaKdsVrxNgJGsCVuoKB4Gl1xQ2XXEr/n+aTw5dmnGPWg0LXKrpoISnp1AlqnWMuj2FkJOKzHiwxoPi4qHv15zK0EfJFQ5wnotNAHOoQGNIH7lQAn6kyBBqKtWfgrKal+/0bNeII7lQb9//oFg23qouUFHs0AAAAASUVORK5CYII=" />
+			Loisirs </p>
 			<div class="loisire" th:each="loisire : ${loisires}" >
 				
 					<label th:text="${loisire.loisire}"  > </label>
@@ -170,16 +180,19 @@ margin-right:5px !important;
  
 	</div>
 <section>
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>       
 
 			  <h1 class="change_color" th:text="${utilisateur.prenom}+' '+${utilisateur.nom}" style="padding-bottom: 25px;"></h1>
-  <!-- Les experiences -->		
+  <!-- Les experiences -->	
   							<div class="row profile" style="margin:10px " th:if="${profile !=null}">
   								<p th:utext="${profile.profile}"></p>
   							</div>		  
 			 				 <div class="card border" style="margin:10px"  th:if="${!experiences.isEmpty()}">  
 									    <div class="card-body" >
 														            
-									       <h5 class="card-title change_color"> Experience</h5>
+									       <h5 class="card-title change_color"> 
+											<img  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAABMUlEQVRIie2Wv0oDQRDGf2ew0ATBNBaBoNjHSsgb+AQp9AnS+CxpfIV0CeIjhBQW9sEiFgZLTZ8inMXN4nluNjvL3hGCHwx7ezvzfTt/Dg7+sUOYAqnSpttID0q6bFoS7x4ipK+qfpfV4zys/U60AQGwavhknBSCtXsrqii1FTtd6sphPofQ/TVwXJXwMkRok7DGehJ7CYyAT+Bd3h+VJfxGNkgNYG45f8ZzprSlHsp647hc1zjHnOqVrCcOn7oPkbbULxJ3Bqwt52ugachjZtySNXHw1nyItvXU5t+W5wf+ZjzwEQ0VHstzk9+TPQdOtcJFc/l/8JN1PxfTLzrH7PE9cA4sZH+VO+toiLQZAxwCd9h/nSbArfhExQXw6riwsRlZZaLhyUPU2GNM4aVC+OsbXlHGotuhsYQAAAAASUVORK5CYII=" />									      
+											 Experience</h5>
 														            
 										   <div class="card-text " th:each="experience : ${experiences}">
 										    <div class="exp-info">
@@ -198,7 +211,9 @@ margin-right:5px !important;
 						  
 				<div class="card-body" >
 														            
-									<h5 class="card-title change_color" > Formation</h5>
+									<h5 class="card-title change_color" >
+									<img  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAmklEQVRIie3UwQnCQBQE0BdTQy6e7MEWPAnpRrAFW7AFr4K9ePJmCYIQiZcNKgZ1w3pQduDDfpj9M/MXll9HEcEtMQ/nHS6pTIyxxAFtqCNWmAwdWqLGFs3d4H2orm8Cpw53Brk9Y4OZ20qnWOMUk6rP7QLVC0NV4PSlwuMjt59EjEABo8RD36KLmar/foIskAWywD/+RRlPuAJFRzF6+TNfoQAAAABJRU5ErkJggg==" />									 
+									Formation</h5>
 														            
 						 <div class="card-text" th:each="formation : ${formations}"  >
 								 <div class="langue-info">
@@ -206,7 +221,7 @@ margin-right:5px !important;
 								 	  <br></br>
 								 	 <label th:text="${formation.Formation_debut_mois} " style="font-size: 12px;"></label>-
 								 	 <label th:text="${formation.Formation_fin_mois}" style="font-size: 12px;"></label> 
-								 	  | <label th:text="${formation.Localite}"></label>
+								 	   | <label th:text="${formation.Localite}"></label>
 								 </div>
 								 <div class="langue-desc">
 								 	 <p th:utext="${formation.Description}" style="font-size: 11px;"></p>
@@ -214,43 +229,7 @@ margin-right:5px !important;
 						 </div>
 				 </div>
 	 </div>
-	<!-- Les competances -->
-		<!--
-					<div class="row" th:if="${competances != null}" >
-					 <div th:each="competance : ${competances}">
-							<div class="col-lg-6 col-md-6 col col-sm-6 " >
-									<div class="card border"  >  
-												    <div class="card-body"  th:if="${competance.Ctype =='téchnique'}">
-																	            
-												       <h5 class="card-title change_color"> Competances théchniques</h5>
-																	            
-													    <p class="card-text ">
-														  <label th:text="${competance.competance}"></label>
-														  <label th:text="${competance.niveau}"></label> 
-														 </p>
-													 </div>
-																	        
-										 </div>
-							</div>
-							
-							<div class="col-lg-6 col-md-6 col col-sm-6 " >
-								<div class="card border"  th:if="${competance.Ctype =='théorique'}" >  
-												    <div class="card-body" >
-																	            
-												       <h5 class="card-title change_color"> Competances théoriques</h5>
-																	            
-													    <p class="card-text "  >
-														  <label th:text="${competance.competance}"></label>
-														  <label th:text="${competance.niveau}"></label> 
-														 </p>
-													 </div>
-																	        
-										 </div>
-								 
-								</div>
-					</div>
-				</div>
-		  -->
+	
 		<!-- <div class="row" th:if="${competances != null}" > -->
 		
 		<!--  -->

@@ -1,6 +1,7 @@
 package com.cv.entities;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -39,10 +40,10 @@ public class Utilisateur implements Serializable{
     private String email;
     private String adresse;
     private String ville;
-    private int codePostal;
+    private String codePostal;
     private String tel;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date dateNaissance;
+    private LocalDate dateNaissance;
 	@Column(columnDefinition = "LONGBLOB")
 	private String image;
     //private byte[] Image;
@@ -83,10 +84,10 @@ public class Utilisateur implements Serializable{
 	public void setVille(String ville) {
 		this.ville = ville;
 	}
-	public int getCodePostal() {
+	public String getCodePostal() {
 		return codePostal;
 	}
-	public void setCodePostal(int codePostal) {
+	public void setCodePostal(String codePostal) {
 		this.codePostal = codePostal;
 	}
 	public String getTel() {
@@ -95,10 +96,10 @@ public class Utilisateur implements Serializable{
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
-	public Date getDateNaissance() {
+	public LocalDate getDateNaissance() {
 		return dateNaissance;
 	}
-	public void setDateNaissance(Date dateNaissance) {
+	public void setDateNaissance(LocalDate dateNaissance) {
 		this.dateNaissance = dateNaissance;
 	}
 	

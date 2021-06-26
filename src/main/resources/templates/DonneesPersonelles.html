@@ -46,21 +46,21 @@ function initMap()
 	  		
 		  		 <div class="col-lg-6 col-md-6 col-sm-12">
 			  		
-  				   <input class="form-control" type="text" placeholder="Entrer votre nom" th:field ="*{Nom}"/>
+  				   <input class="form-control" type="text" placeholder="Entrer votre nom" th:field ="*{Nom}" required/>
 		  		 
 		  		 </div>
 		  		 <div class="col-lg-6 col-md-6 col-sm-12">
-                       <input class="form-control" type="text" placeholder="Entrer votre prénom" th:field ="*{Prenom}"/>
+                       <input class="form-control" type="text" placeholder="Entrer votre prénom" th:field ="*{Prenom}" required/>
 		  		 
 		  		 </div>
 	  		</div>
 	  		<div class="row">
 		  		 <div class="col-lg-6 col-md-6 col-sm-12">
-			  		 <input class="form-control" type="email" placeholder="Entrer votre mail" th:field="*{Email}"/>
+			  		 <input class="form-control" type="email" placeholder="Entrer votre mail" th:field="*{Email}" required/>
 			  		 
 			  		 </div>
 			  		 <div class="col-lg-6 col-md-6 col-sm-12">
-			  		       <input class="form-control" type="tel" pattern="[0-9]*" placeholder="Entrer votre numéro de telephone" th:field="*{Tel}"/>
+			  		       <input class="form-control" type="tel" pattern="[0-9]*" placeholder="Entrer votre numéro de telephone" th:field="*{Tel}" required/>
 			  		 
 			  		 </div>
 	  		</div>
@@ -85,7 +85,7 @@ function initMap()
 	  		<div class="row">
 	  		 	
 	  		 	<div class="col-lg-6 col-md-6 col-sm-12">
-                      <input class="form-control" type="date" placeholder="Entrer votre age" th:field="*{DateNaissance}"/>
+                      <input class="form-control" type="date" placeholder="Entrer votre age"  th:field="*{DateNaissance}"/>
 	  		 	</div>	
 	  		 	<div class="col-lg-6 col-md-6 col-sm-12">
 	  		 	      <input class="form-control" type="file" name="image" th:field="*{image}">

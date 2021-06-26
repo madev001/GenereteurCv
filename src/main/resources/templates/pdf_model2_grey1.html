@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset = "utf-8"></meta>
+<meta charset="ISO-8859-1"></meta>
+<title>model 1</title>
+<link rel="stylesheet" 
+href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+crossorigin="anonymous"> </link>
+ <link href="/bootstrap/css/bootstrap.min.css"
+                rel="stylesheet" media="screen"/>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" media="all"></link>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<style  type="text/css" media="all">
+
+img {
+  width:100% !important;
+  height:100% !important;
+
+
+}
+.langue-desc{
+padding-Bottom:20px;
+}
+@page{
+       
+        margin: 0 !important;
+        padding:0 !important;
+        
+        }
+body,html{
+height:100% !important;
+}
+
+.change_color{
+  color:#BEBEBE !important;
+}
+@page{
+       
+        margin: 0 !important;
+        padding:0 !important;
+        
+        }
+#center-page{
+     height:100% !important;
+    width: 100% !important;
+     }
+.aside {
+  
+  		width: 100% !important; 
+  		min-height:15% !important; 
+		background: #BEBEBE !important;
+}
+section {
+  width: 100% !important;
+  min-height:75% !important;
+}
+
+
+.card-title{
+text-decoration: underline overline !important;
+font-size: 130% !important;
+}
+.card-text{
+margin-left:30px !important;
+}
+svg{
+margin-left:10px !important;
+margin-right:10px !important;
+}
+.dp{
+font-size: 100% !important;
+margin-left:10x !important;
+}
+.langue,.competance{
+margin-left:10px !important;
+}
+span{
+float: right !important;
+margin-right:5px !important;
+}
+.entete{
+display:inline-block;
+}
+aside {
+  
+  min-height:80% !important;
+  height:80% !important;
+  width: 30% !important;
+  float: right !important;
+
+}
+
+
+</style>
+
+</head>
+<body>
+
+<div id="center-page">
+	<div class="aside">
+		<div class="col-lg-4 col-md-4 col-sm-4 entete" th:if="${!utilisateur.Image.isEmpty()}"  style="width:30% !important; height:100% !important; display:inline-block">
+
+			<img th:src="|data:image/png;base64,${utilisateur.Image}|"  alt="Profile Image" ></img> 
+		</div>
+		<div class="col-lg-8 entete" th:if="${!utilisateur.Nom.isEmpty()}" style="width:60% !important; display:inline-block">
+						  <h3  th:text="${utilisateur.prenom}+' '+${utilisateur.nom}" ></h3>
+			
+<!-- Telephone -->
+				
+				<label class="dp" th:text="${utilisateur.Tel}"></label><br></br>
+ <!-- Adresse -->
+				
+				<label class="dp" style="" th:text="${utilisateur.Adresse}+' '+${utilisateur.Ville}+' '+${utilisateur.CodePostal}"></label><br></br>
+ <!-- Adresse email -->
+				
+				<label class="dp" th:text="${utilisateur.Email}"></label><br></br> 
+ <!-- Date naissance -->
+			
+				<label class="dp" th:text="${utilisateur.DateNaissance}"></label><br></br>
+		</div>
+	</div>
+<section>
+	<div class="row profile" style="margin:10px " th:if="${profile !=null}">
+  								<p th:utext="${profile.profile}"></p>
+  	</div>	
+	
+		<div class="parcours" style="display:inline-block; width:70%;"> 
+
+  <!-- Les experiences -->			  
+			 				 <div class="card border" style="margin:2%"  th:if="${!experiences.isEmpty()}">  
+								 <div class="card-body" >
+														            
+									       <h5 class="card-title change_color"> Experience</h5>
+														            
+										   <div class="card-text " th:each="experience : ${experiences}">
+										    <div class="exp-info">
+											  <label th:text="${experience.Fonction}"></label> | <label th:text="${experience.Etablissement}"></label><br></br>
+											  <label th:text="${experience.Depuis}"></label> - <label th:text="${experience.Jusqua}"></label>
+									         | <label th:text="${experience.Localite}"></label>
+									        </div>
+									        <div class="langue-desc">
+											 	 <p th:utext="${experience.Description}" style="font-size: 11px;"></p>
+											 </div>	
+										</div>
+								 </div>
+														        
+							 </div>
+	<!-- les Formations -->													    
+	<div class="card border" style="margin:2%" th:if="${!formations.isEmpty()}" > 
+						  
+				<div class="card-body" >
+														            
+									<h5 class="card-title change_color" > Formation</h5>
+														            
+						 <div class="card-text" th:each="formation : ${formations}"  >
+								 <div class="langue-info">
+								 	 <label  th:text="${formation.Intitule}"></label> | <label th:text="${formation.Etablissement}"></label>
+								 	  <br></br>
+								 	 <label th:text="${formation.Formation_debut_mois} " style="font-size: 12px;"></label>-
+								 	 <label th:text="${formation.Formation_fin_mois}" style="font-size: 12px;"></label> 
+								 	    | <label th:text="${formation.Localite}"></label>
+								 </div>
+								 <div class="langue-desc">
+								 	 <p th:utext="${formation.Description}" style="font-size: 11px;"></p>
+								 </div>
+						 </div>
+				 </div>
+	 </div>
+	</div> <!-- fermeture parcours -->
+	
+		<!-- <div class="row" th:if="${competances != null}" > -->
+		
+<aside class="row" style="display:inline-block">		<!--  -->
+			<!-- Competances -->
+		<div class="card border col-lg-4" style="margin:2%" th:if="${!competances.isEmpty()}">
+		<p class=" change_color card-title" style="font-size: 25px;font-weight: bold;"> Compétances</p>
+					 <div class="competance"  th:each="competance : ${competances}" >
+					
+					<label  th:text="${competance.competance}"></label>
+			 <!-- 3 stars -->
+					<span th:if="${competance.niveau ==3}"> Senior</span>
+		     <!-- 4 stars -->
+					<span th:if="${competance.niveau ==2}"> Medior</span>
+		     <!-- 5 stars -->
+					<span th:if="${competance.niveau ==1}"> Junior</span>
+														  
+					 </div>
+		</div>
+		 <!-- panel langue -->
+		<div class="card border col-lg-4" style="margin:2%"  th:if="${!langues.isEmpty()}" >
+			<p class=" change_color card-title" style="font-size: 25px;font-weight: bold;" >Langues </p>
+			<div class="langue" th:each="langue : ${langues}" >
+				
+					<label th:text="${langue.Langue}"  > </label>
+				
+			<!-- 1 star -->
+					<span th:if="${langue.Niveau ==5}"> Debutant</span>
+		     <!-- 2 stars -->
+					<span th:if="${langue.Niveau ==4}"> Intermediaire</span>
+		     <!-- 3 stars -->
+					<span th:if="${langue.Niveau ==3}"> Courant</span>
+		     <!-- 4 stars -->
+					<span th:if="${langue.Niveau ==2}"> Bilingue</span>
+		     <!-- 5 stars -->
+					<span th:if="${langue.Niveau ==1}"> Langue Maternelle</span>
+				
+			</div>
+		</div>
+ <!--  -->
+ 		 <!-- panel loisire -->
+		<div class="card border col-lg-4" style="margin:2%"  th:if="${!loisires.isEmpty()}">
+			<p class="change_color card-title" style="font-size: 25px;font-weight: bold;" >Loisire </p>
+			<div class="loisire" th:each="loisire : ${loisires}" >
+				
+					<label th:text="${loisire.loisire}"  > </label>
+			</div>
+		</div>
+						
+ </aside>
+ </section>
+</div>
+
+<!-- Data -->
+
+															
+														     
+</body>
+
+</html>
