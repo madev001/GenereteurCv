@@ -48,7 +48,7 @@ function initMap()
 					  </div>
 				</div>
 				
-				 <h3 th:text="${utilisateur.nom}+' '+${utilisateur.prenom}" class="d-inline"></h3>
+				 <h3 th:text="${utilisateur.nom}+' '+${utilisateur.prenom}" class="d-inline" style="text-transform: uppercase;"></h3>
 								
 		      <div class="panel panel-primary">
 				  <div class="panel-heading">
@@ -126,7 +126,7 @@ function initMap()
 				    	<div class="row">
 				  			<a  class="add btn btn-warning col-lg-6 col-md-6 col-sm-4 offset-lg-2" style="margin:10px;">Ajouter une Formation</a>
 				  			<a class="cancel btn btn-danger col-lg-2 col-md-2 col-sm-2" style="display:none;">Annuler</a>
-				  			<button type="submit" class="btn btn-success pull-right " style="margin:10px;">
+				  			<button type="submit" class="save btn  pull-right " style="margin:10px;">
 				  			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-save-fill" viewBox="0 0 16 16">
   							<path d="M8.5 1.5A1.5 1.5 0 0 1 10 0h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h6c-.314.418-.5.937-.5 1.5v7.793L4.854 6.646a.5.5 0 1 0-.708.708l3.5 3.5a.5.5 0 0 0 .708 0l3.5-3.5a.5.5 0 0 0-.708-.708L8.5 9.293V1.5z"/>
 							</svg>
@@ -138,7 +138,7 @@ function initMap()
 			</div></br> 	
 
 			<div class="row text-center" >
-					<a class=" btn btn-primary" stylr="border-radius:50%" th:href="@{/Experiences?id=__${utilisateur.id}__}">Mes Experiences</a>
+					<a class="next btn col-lg-2"  th:href="@{/Experiences?id=__${utilisateur.id}__}">Mes Experiences</a>
 			</div>
 			<div class="row text-center">
 				    	<a  th:href="@{/Profile?id=__${utilisateur.id}__}">Revenir au Profile !</a>
@@ -146,6 +146,65 @@ function initMap()
     </div>
 </body>
 <style>
+.next {background-image: linear-gradient(to right, #000000 0%, #434343  51%, #000000  100%)}
+         .next {
+            
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;            
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
+          }
+
+          .next:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+          }
+         
+
+         #conseil {background-image: linear-gradient(to right, #4DA0B0 0%, #D39D38  51%, #4DA0B0  100%)}
+         #conseil {
+            
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 100% auto;
+            color: white;            
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
+          }
+
+          #conseil:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+          }
+         
+         
+         .save {background-image: linear-gradient(to right, #1D976C 0%, #93F9B9  51%, #1D976C  100%)}
+         .save {
+          
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 150% auto;
+            color: white;            
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
+          }
+
+          .save:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+          }
+         
+
 .container {
 
     height: 100%;

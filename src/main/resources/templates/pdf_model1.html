@@ -91,6 +91,7 @@ padding-Bottom:20px;
 width:8%;
 heigth:5%;
 }
+
 </style>
 
 </head>
@@ -182,7 +183,7 @@ heigth:5%;
 <section>
 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>       
 
-			  <h1 class="change_color" th:text="${utilisateur.prenom}+' '+${utilisateur.nom}" style="padding-bottom: 25px;"></h1>
+			  <h1 class="change_color" th:text="${utilisateur.prenom}+' '+${utilisateur.nom}" style="padding-bottom: 25px; text-transform: uppercase;"></h1>
   <!-- Les experiences -->	
   							<div class="row profile" style="margin:10px " th:if="${profile !=null}">
   								<p th:utext="${profile.profile}"></p>

@@ -92,7 +92,7 @@ function initMap()
 	  		 	</div>
 	  		</div>
 	  		<div class="row text-center">
-	  			   <button type="submit" class="btn btn-primary">Etape suivante</button>
+	  			   <button type="submit" class="save btn">Etape suivante</button>
 	  			
 	  		</div>
   		</div>
@@ -104,6 +104,27 @@ function initMap()
 <!--  -->
 </body>
 <style>
+         
+         .save {background-image: linear-gradient(to right, #1D976C 0%, #93F9B9  51%, #1D976C  100%)}
+         .save {
+          
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 150% auto;
+            color: white;            
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
+          }
+
+          .save:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+          }
+         
+
 .multisteps-form{
 padding :2%;
 

@@ -41,7 +41,7 @@ crossorigin="anonymous">
 			  </div>
 		</div>
 		 
-				<h3 th:text="${utilisateur.nom}+' '+${utilisateur.prenom}"></h3>
+				<h3 th:text="${utilisateur.nom}+' '+${utilisateur.prenom}" style="text-transform: uppercase;"></h3>
 								
 
 <!-- Panel Experiences -->								
@@ -92,7 +92,7 @@ crossorigin="anonymous">
 				</div>
 				    	<div class="row">
 				  			
-				  			<button type="submit" class="save btn btn-success pull-right " style="margin:10px;" >
+				  			<button type="submit" class="save btn  pull-right " style="margin:10px;" >
 				  			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-save-fill" viewBox="0 0 16 16">
   							<path d="M8.5 1.5A1.5 1.5 0 0 1 10 0h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h6c-.314.418-.5.937-.5 1.5v7.793L4.854 6.646a.5.5 0 1 0-.708.708l3.5 3.5a.5.5 0 0 0 .708 0l3.5-3.5a.5.5 0 0 0-.708-.708L8.5 9.293V1.5z"/>
 							</svg>
@@ -102,11 +102,22 @@ crossorigin="anonymous">
 						 </form>
 						
 			   		 </div>
-				  
-			</div></br> 
+				  <button class=" pull-right" id= "conseil"style="margin:1%">
+					<svg xmlns="http://www.w3.org/2000/svg" id="lamp" width="16" height="16" fill="currentColor" class="bi bi-lightning" viewBox="0 0 16 16">
+					  <path d="M5.52.359A.5.5 0 0 1 6 0h4a.5.5 0 0 1 .474.658L8.694 6H12.5a.5.5 0 0 1 .395.807l-7 9a.5.5 0 0 1-.873-.454L6.823 9.5H3.5a.5.5 0 0 1-.48-.641l2.5-8.5zM6.374 1 4.168 8.5H7.5a.5.5 0 0 1 .478.647L6.78 13.04 11.478 7H8a.5.5 0 0 1-.474-.658L9.306 1H6.374z"/>
+					</svg>
+					Conseils
+				</button>
 				
-					<div class="row text-center">
-					  	<a class=" btn btn-primary" th:href="@{/Formations?id=__${utilisateur.id}__}">Mes Formations</a>
+					
+				
+			</div></br> 
+				<div class="well well-lg" id="well" style="display: none;">
+1 .Rédigez votre description personnelle de manière concise. Vantez vos talents afin de tenter de décrocher l'emploi vacant, à l'aide d'une brève présentation de votre profil. N'utilisez pas de liste de mots-clés, mais formulez des phrases entières.
+<br>2 .Mentionnez les informations suivantes au cœur d'un texte de présentation de votre profil bien rédigé: Résultats obtenus, Caractéristiques positives, Ambitions et Objectifs, Ce que vous recherchez.
+				</div>
+					<div class="row " >
+					  	<a class="next btn col-lg-2 " th:href="@{/Formations?id=__${utilisateur.id}__}">Mes Formations</a>
 				    </div>
    			<!-- test zone de texte -->
      
@@ -116,6 +127,67 @@ crossorigin="anonymous">
 </body>
 <style>
 
+         .next {background-image: linear-gradient(to right, #000000 0%, #434343  51%, #000000  100%)}
+         .next {
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;            
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
+          }
+
+          .next:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+          }
+         
+
+         #conseil {background-image: linear-gradient(to right, #4DA0B0 0%, #D39D38  51%, #4DA0B0  100%)}
+         #conseil {
+            
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 100% auto;
+            color: white;            
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
+          }
+
+          #conseil:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+          }
+         
+         
+         .save {background-image: linear-gradient(to right, #1D976C 0%, #93F9B9  51%, #1D976C  100%)}
+         .save {
+          
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 150% auto;
+            color: white;            
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
+          }
+
+          .save:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+          }
+         
+#lamp:hover{
+color: yellow;
+}
 .container {
 
     height: 100%;
@@ -136,6 +208,7 @@ if (!$("#profile").text().length) {
 	$( "#textarea" ).show( "slow" );
 }
 else{$("#textarea").hide();}
+
 if(document.querySelector('#profile:empty')) {
 	$( "#textarea" ).hide( "slow" );
 	}
@@ -146,7 +219,13 @@ if($("p#profile").val().length === 0)
 	$( "#textarea" ).hide();
 }
 
+$( "#conseil" ).click(function() {
+	  $( "#well" ).css("display", "block");
+	
+	});
 
+
+ 
 
 
 $('.panel-heading').on('click', function() {
@@ -161,6 +240,7 @@ $( ".add" ).click(function() {
 	  $( ".cancel" ).show( "slow" );
 	  $( ".save" ).show( "slow" );
 	});
+	
 
 $( ".cancel" ).click(function() {
 	  $( ".AddForm" ).hide( "slow" );
@@ -171,12 +251,15 @@ $( ".cancel" ).click(function() {
 	
 /*$(function(){
 	   var hide = true;
+
 	   $('#profile').each(function(){
 	        var td_content = $(this).text();
+
 	        if(td_content.val() == ''){
 	            hide = false;
 	        }
 	   })
+
 	   if(hide= false){
 	      $('.AddForm').hide();
 	   }
