@@ -1,5 +1,5 @@
 package com.cv.service.test;
-/*
+
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
@@ -28,51 +28,36 @@ import com.cv.service.FormationService;
 
 @RunWith(MockitoJUnitRunner.class)
 class UtilisateurServiceTest {
-	@Mock
+	@Autowired
     FormationRepository fr;
-	//@Mock
-	//UtilisateurRepository ur;
+	@Autowired
+	UtilisateurRepository ur;
+	@Autowired
+	FormationService fs;
 	
-	@Before
-	public void init() throws Exception {
-		//MockitoAnnotations.initMocks(this);
-		/*FormationService fs = mock(FormationService.class);
-		final Formation formation = new Formation();
-		formation.setIntitule("qualite logiciel");
-		when(fs.ajouterFormation(formation, null)).thenReturn(formation);
-		Formation created = new Formation();
-		created.setIntitule(formation.getIntitule());
-	}
+	
 	
      
-	// @InjectMocks 
-	 FormationService fs;
+	 
+	 
     
-	@Test
-	void test() {
+	/*@Test
+	void testAjoutUtilisateur() {
 		
-		/*utilisateur.setNom("test");
+		Utilisateur utilisateur = new Utilisateur();
+		utilisateur.setNom("test");
 		utilisateur.setPrenom("test");
 		utilisateur.setAdresse("test");
 		utilisateur.setEmail("test");
-		utilisateur.setCodePostal(1200);
-		Utilisateur saved = repo.save(utilisateur);
-		assertEquals(1, repo.findAll().size());
-		
-		Formation formation = new Formation();
-		formation.setIntitule("qualite logiciel");
+		Utilisateur saved = ur.save(utilisateur);
+		//assertEquals(1, ur.findAll().size());
+		assertEquals("test",saved.getNom());
 		//when(fr.save(formation)).thenReturn(formation);
 		//Formation created = fs.ajouterFormation(formation, null);
 		//created.setIntitule(formation.getIntitule());
-		assertNotNull(formation);
-		//when(fr.save(ArgumentMatchers.any(Formation.class))).thenReturn(formation);
-		//Formation created = fr.save(formation); //fs.ajouterFormation(formation, null); // error when execute this
-		//Assert.assertThat(created.getIntitule()).isSameAs(formation.getIntitule());
-		//assertEquals(created.getIntitule(), formation.getIntitule());
 		
 		//assertEquals("qualite logiciel", formation.getIntitule());
-		//verify(fr).save(formation);
-	}
+		
+	}*/
 
 }
-*/
