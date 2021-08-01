@@ -1,4 +1,4 @@
-package com.cv.service.test;
+/*package com.cv.service.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -41,7 +41,7 @@ class FormationServiceTest {
 		assertEquals("test", exepted.getDescription());
 
 	}
-	/*@Test
+	@Test
 	void testSuppFormation() {
 		Utilisateur u = new Utilisateur();
 		u.setNom("mouad");
@@ -58,6 +58,7 @@ class FormationServiceTest {
 		List<Formation> exepteda = fs.listeFormation(u);	
 		assertNotNull(exepteda);
 
-	}*/
+	}
 
 }
+*/

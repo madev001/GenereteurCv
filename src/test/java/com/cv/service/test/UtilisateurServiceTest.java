@@ -1,4 +1,4 @@
-package com.cv.service.test;
+/*package com.cv.service.test;
 
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -41,7 +41,7 @@ class UtilisateurServiceTest {
 	 
 	 
     
-	/*@Test
+	@Test
 	void testAjoutUtilisateur() {
 		
 		Utilisateur utilisateur = new Utilisateur();
@@ -58,6 +58,7 @@ class UtilisateurServiceTest {
 		
 		//assertEquals("qualite logiciel", formation.getIntitule());
 		
-	}*/
+	}
 
 }
+*/
