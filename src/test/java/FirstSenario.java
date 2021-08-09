@@ -1,25 +1,36 @@
-/*import java.util.concurrent.TimeUnit;
 
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.concurrent.TimeUnit;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
 
-public class SeleniumTest {
+class FirstSenario {
 
+	static WebDriver driver;
 	
-	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	@BeforeAll
+	static void setUpBeforeClass() throws Exception {
 		String exePath = "src/test/java/drivers/chromedriver.exe";
 		System.setProperty("webdriver.chrome.driver" , exePath);
-	 	 WebDriver driver = new ChromeDriver();
+	 	 driver = new ChromeDriver();
 		//driver.get("https://moncv21.herokuapp.com/");
 		driver.get("http://localhost:8081/");
+	}
+
+	@AfterAll
+	static void tearDownAfterClass() throws Exception {
+	}
+
+	@Test
+	void testNormal() {
+		
 		driver.manage().window().maximize();
 		//Click sur Vas y 
 		driver.findElement(By.className("btn")).click();
@@ -80,8 +91,7 @@ public class SeleniumTest {
 //Choisir model
 			driver.findElement(By.className("next")).click();
 
+
 	}
-	
 
 }
-*/

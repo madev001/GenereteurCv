@@ -9,11 +9,7 @@ node{
 
       bat  "${mvnHome}/bin/mvn clean"
     }
-        stage('test'){
-      def mvnHome = tool name: 'maven-3.6.3'
-
-      bat  "${mvnHome}/bin/mvn test"
-    }
+        
     
     stage('Package'){
       // Maven home path
@@ -26,7 +22,12 @@ node{
       bat  "docker-compose up -d"
     }
     
+	stage('test'){
+      def mvnHome = tool name: 'maven-3.6.3'
 
+      //bat  "${mvnHome}/bin/mvn test"
+      bat "${mvnHome}/bin/mvn -Dtest=FirstSenario test"
+    }
      
   //stage('mail Notification'){
     //mail bcc: '', body: '''Jenkins Alert !
