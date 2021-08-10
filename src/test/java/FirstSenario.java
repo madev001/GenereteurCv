@@ -90,8 +90,11 @@ class FirstSenario {
 			
 //Choisir model
 			driver.findElement(By.className("next")).click();
-
-
+//telecharger 2 model gris 
+			driver.findElement(By.id("grey")).click();
+			driver.findElement(By.id("cv1_grey")).click();
+			driver.findElement(By.id("grey2")).click();
+			driver.findElement(By.id("cv2_grey")).click();
 	}
 
 }
